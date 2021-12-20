@@ -95,23 +95,6 @@ The following issues are long-standing and they're known. While I expect to figu
 1. Infinite scroll implementation. The current implementation for infinite scroll is slightly jerky when the border is crossed, "thanks" to imperfect math. If anyone would like to contribute some code improvement to make the infinite scroll smooth and seamless, check out the code circa line 529 in game.py, the update_border_mirror method. Also, perhaps there's a better/faster/simpler implementation possible for this, I'm not sure yet.
 2. Rockford blinking and tapping animation. The original Boulder Caves implementation isn't synced up properly to match the animation cycles, which is why Rockford blinks and taps feet in a jerky, disjointed way, and too quickly. Boulder Caves+ improves it by attempting to sync up and delay the animations not to interfere with each other according to the GDash source, but it seems like there's still a corner case where a blink animation would be cut short by the beginning or the ending tap animation. This needs more work on synchronization. It's not very noticeable, but it's there.
 
-# Krissz Engine Compatible Graphics and Sound Assets
-
-Boulder Caves+ is able to support the additional graphics elements and sound effects unique to Krissz Engine, but does not come bundled with any of them. In particular, the second boulder sound (boulder2.ogg under bouldercaves/sounds) will sound just the same as the original one, while in Krissz Engine there are two sounds played randomly, one of them unique to Krissz Engine. By default, the unique Krissz Engine graphics elements for tiles such as the editor slime, inbox, outbox tiles, etc., will have compatible replacements.
-
-If you want to play the game with Krissz Engine graphics and sounds and make the game look and sound as close as possible to Krissz Engine, you would need to modify the assets (boulder2.ogg and c64-gfx-krissz.png) to match Krissz Engine - in particular, you would need to rip the second boulder sound, possibly by recording it during the game session and saving it in an .ogg format, and you would need to replace the icons in the last row of c64-gfx-krissz.png to match Krissz Engine. The icons, from left to right, are:
-   Light Boulder (already correct since it's basically just a standard boulder that's squashed one tile vertically)
-   Expanding Wall Both Ways, editor icon
-   Empty gray border tile (already correct, just an empty tile)
-   Slime editor icon
-   Inbox editor icon
-   Outbox editor icon
-   Hidden outbox editor icon
-   Impermeable Slime icon (Krissz Engine uses an overlay, so you may opt to just keep the existing replacement icon)
-   Also, you may want to replace the Slime animation cycle row with the versions from Krissz Engine if you desire absolute authenticity (Krissz Engine basically features single color slime without the outside rim).
-
-Do note that Boulder Caves+ is fully playable without any of these actions, so you may not need to do any of this if you just want to play and enjoy the game.
-
 # BDCFF File Format Extensions
 
 Boulder Caves+ uses its own, extended version of the BDCFF file format for storing cave data. While largely compatible with the original BDCFF specification, the Boulder Caves+ version (let's call in BDCFF+ for simplicity) contains some additional options and characters not found in the original specification (mostly for Krissz engine-specific features and objects). Thus, any original BDCFF file within the limits of what is supported by Boulder Caves+ should still be a valid BDCFF+ file, but not every BDCFF+ file is backwards compatible with the original BDCFF.
