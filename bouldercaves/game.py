@@ -693,14 +693,17 @@ class BoulderWindow(tkinter.Tk):
 
     def ask_highscore_name(self, score_pos: int, score: int) -> str:
         username = bdcff.get_system_username()[:HighScores.max_namelen]
-        while True:
-            name = simpledialog.askstring("Enter your name", "Enter your name for the high-score table!\n\n"
-                                          "#{:d} score:  {:d}\n\n(max {:d} letters)"
-                                          .format(score_pos, score, HighScores.max_namelen),
-                                          initialvalue=username, parent=self) or ""
-            name = name.strip()
-            if 0 < len(name) <= HighScores.max_namelen:
-                return name
+        name = simpledialog.askstring("Enter your name", "Enter your name for the high-score table!\n\n"
+                                        "#{:d} score:  {:d}\n\n(max {:d} letters)"
+                                        .format(score_pos, score, HighScores.max_namelen),
+                                        initialvalue=username, parent=self) or ""
+        name = name.strip()
+        if 0 < len(name) <= HighScores.max_namelen:
+            return name
+        elif len(name) > HighScores.max_namelen:
+            return name[0:HighScores.max_namelen]
+        else:
+            return ""
 
 
 def start(sargs: Sequence[str]=None) -> None:

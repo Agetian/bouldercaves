@@ -943,7 +943,8 @@ WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
         def ask_highscore_name(position: Optional[int], score):
             if position:
                 name = self.game.ask_highscore_name(position, score)
-                self.highscores.add(name, score)
+                if name != "":
+                    self.highscores.add(name, score)
         self.game.popup(popuptxt, on_close=lambda: ask_highscore_name(score_pos, self.score))
 
     def load_next_level(self, intro_popup: bool=True) -> None:
