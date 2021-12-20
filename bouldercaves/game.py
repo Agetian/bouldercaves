@@ -527,10 +527,13 @@ class BoulderWindow(tkinter.Tk):
                     mirror_target_x = mirror.x
                     mirror_target_y = mirror.y
                     mirror_idx = mirror.y * self.gamestate.width + mirror.x
-                    if self.tiles_revealed[mirror_idx] == 0 and self.gamestate.game_status in (GameStatus.REVEALING_DEMO, GameStatus.REVEALING_PLAY):
-                        continue
-                    elif self.tiles_revealed[mirror_idx] == 0:
-                        self.tiles_revealed[mirror_idx] = 1
+                    try:
+                        if self.tiles_revealed[mirror_idx] == 0 and self.gamestate.game_status in (GameStatus.REVEALING_DEMO, GameStatus.REVEALING_PLAY):
+                            continue
+                        elif self.tiles_revealed[mirror_idx] == 0:
+                            self.tiles_revealed[mirror_idx] = 1
+                    except:
+                        pass
                     if mirror.x < self.gamestate.cave_delta_x:
                         mirror_target_x += cave_width
                     elif mirror.x >= cave_width + self.gamestate.cave_delta_x:
