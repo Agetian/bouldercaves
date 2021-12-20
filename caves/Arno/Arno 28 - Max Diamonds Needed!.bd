@@ -1,0 +1,70 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #ffffff #ebeb57 #978ed1
+
+[BDCFF]
+[game]
+Name=Arno 28 Max Diamonds Needed!
+Description=A converted Krissz Engine cave
+Author=Arno
+WWW=
+Date=2015-04-19
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=Max Diamonds Needed!
+Intermission=false
+CaveTime=400
+DiamondsRequired=145
+DiamondValue=10 0
+AmoebaTime=60
+AmoebaThreshold=0.227300
+MagicWallTime=40
+SlimePermeability=1.000
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=40 22
+TargetFps=6.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=0
+Colors=#000000 #000000 #978ed1 #ebeb57 #ffffff #ffffff #ffffff
+
+[map]
+WWWWWWWWWWwWWWWWwWWWWWWWwWWWWWWWWwWWWWWW
+Wr.r.r.rr.w  o  w..rdr.rw.rdrdrr.w....rW
+Wr.r.r.rr.. ... ...rdr..w.ssssss....r.rW
+W.........w .d. w..rdr..w.rrdddd.w..r..W
+WMMMMMMMM.w ... w..rdr..w.ssssss.wr..r.W
+W        .w     w..rdr..w.ddrrrd.w..r..W
+wwwwwwwwwwwww.wwwwwwwwwwwwMwwwwwwwww.www
+W wr.rdr...drddrw....x.xwrddrwdrdwdddddW
+W W..rdr..wrrrdr...x...xwdrdrwrdrwdWWWdW
+W w..rdr..wdrdrdw.xx.x..ww.wwww.wwdWWWdW
+WoW..rdr..wrdrdrw.x....xwdrrdwddrwdWWWdW
+Wow..rdr..wddrdrw...x...wdrdrwrrdwdddddW
+wwWwWwwwwwwww.wwwwwwww.wWWW.WWW.WWww.www
+WrrrrdddddX     wdrddrddW        Wrr.r.W
+Wdrrrdddddw     wddrddrd.        W....rW
+Wdrrrdddddw  P  wdddrddrW        W..r..W
+Wddrrdddddw     wddddrddW        W.....W
+wrwwwwwwwwwrwwwwwrwwwwwwWWWWWWWWWW.ssssw
+W..dd.rr..W..d..W..o....w.rr..dd..c    W
+W..dd.rr..W.Wd..W.. ......rr..dd.w     W
+W..dd.rr..w..d..w.. ....w.rr..dd.w     W
+WWWWWWWWWWwWWWWWwWWWWWWWwWWWWWWWWwWWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

@@ -1,0 +1,66 @@
+; written by Bouldercaves.Bdcff by Irmen de Jong
+; last modified 2021-11-16
+
+[BDCFF]
+[game]
+Name=Arno 598 Boulder Brothers
+Description=A converted Krissz Engine cave
+Author=Arno
+WWW=
+Date=2017-10-06
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=Boulder Brothers
+Description=
+Intermission=false
+CaveTime=100
+DiamondsRequired=4
+DiamondValue=100 0
+AmoebaTime=60
+AmoebaThreshold=0.227300
+MagicWallTime=2
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=20 18
+TargetFps=7.0
+MagicWallStopsAmoeba=true
+RockfordBirthTime=15
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=true
+OpenVerticalBorders=true
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=0
+Colors=#000000 #000000 #383023 #915d26 #bbf0ee #bbf0ee #bbf0ee
+
+[map]
+W %    M   Ww       
+  .  M w       w  M 
+     w    w M     w 
+ Www        s   *   
+                M   
+ s  w   s s W   wW s
+   w   Ms s         
+  w     s s   w    M
+      r s.  s  M  Ww
+    w W  M     sW   
+ w       P       s  
+w    Ww  X  wWW     
+    M  M           w
+  M w  w        w   
+ Ws          M      
+     w  * s  w      
+   sW   Ww       wW 
+           wM   w   
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

@@ -1,0 +1,171 @@
+KrisszConvert - A simple AI tool to convert graphics cave images from Krissz Engine to BDCFF format.
+
+Version 1.4 - December 14, 2021
+Written by Michael Kamensky. Distributed under General Public License (GPL) v3, check LICENSE for information.
+===================================================================================================================
+
+1. Purpose.
+-----------
+
+KrisszConvert is a tool that can be used to convert a graphical cave image (in PNG format) exported either from Krissz Engine Construction Kit (KECK) or from Krissz Engine cave list into the BDCFF text file format for further editing and use in BoulderCaves+ or other Boulder Dash engines that have the necessary degree of compatibility with Krissz Engine.
+
+Krissz Engine has thousands of amazing caves with very unique ideas. Sadly, many or all of them may eventually be lost to history if the online Krissz Engine ceases to function at some point in time and the cave data is not released publicly in some format that can be parsed or otherwise preserved by the community in some way. Therefore, my hope is that many, if not all, of those caves can eventually be preserved in public BDCFF collections made with the help of this tool, and these collections can then be played using (largely) compatible engines, such as the BoulderCaves+ engine which is currently in development and aims to provide as high compatibility with the New Krissz Engine as possible. If you make a BDCFF conversion of your caves using KrisszConvert, please consider sharing them with the Boulder Dash community and leave your legacy for the future players and developers who will find the amazing Boulder Dash game fun and entertaining to play in the years to come.
+
+2. Requirements and basic use.
+------------------------------
+
+KrisszConvert is a command line tool written in Python 3. It should be compatible with Python v3.6 or above and utilizes PIL (Python Imaging Library) which needs to be installed separately.
+If you don't have Python installed, you need to install it (preferably the latest version available) from the official website and then also install PIL, preferably using pip. If you don't know how to install Python packages or use pip, please check the official online documentation for details relevant to your operating system.
+
+The basic command for invoking the KrisszConvert tool looks like this:
+
+    ./krisszconvert.py [options] <input_png_file_name> <output_bdcff_file_name> [color_palette_specification]
+
+There is also a batch conversion mode (-b or --batch option) which takes all PNG files in the given folder and converts them into BDCFF files in the target folder:
+
+    ./krisszconvert.py [options] -b <input_folder> <output_folder>
+
+The cave author's name can be specified on the command line both in non-batch and in batch mode by using the -a (--author) option, e.g.:
+
+    ./krisszconvert.py [options] -a <author's name> <input_png_file_name> <output_bdcff_file_name>
+
+In most typical scenarios, no additional options are necessary, and specifying color palette is also not needed. Please refer to [3] to learn more about the possible options and their intended use.
+
+Once you have the minimal system requirements satisfied, in order to convert a cave from Krissz Engine into a BDCFF representation, depending on the conditions, you will need to follow one of the following three procedures. These procedures will be described in the order of preference, from the one that yields the most precise results to the one that yields the least precise results.
+
+2.1. Converting authored caves.
+-------------------------------
+
+If you're the author of the cave and you have access to Krissz Engine Construction Kit, you can export and convert the cave with maximum precision. To do it, follow the steps outlined below:
+
+* Load your cave in Krissz Engine Construction Kit and click the "eye" icon described as "Preview Cave Image" to download a large-scale (32x32 tiles), detailed representation of the cave in PNG format.
+* Run KrisszConvert on the exported cave image and wait for the procedure to complete to get a BDCFF file, e.g.:
+  ./krisszconvert.py Cave_Image.png BDCFF_File_Name.bd
+* If the conversion succeeds, open the resulting BDCFF file in any text editor and set the Krissz-Engine specific properties under [cave] to the same values that you see in Krissz Engine Construction Kit, namely:
+  - TargetFps - set to the value of Game Speed (Frames Per Second) in KECK
+  - MagicWallStopsAmoeba - set to "true" if "Magic Wall Stops Amoeba" is checked in KECK, otherwise "false"
+  - RockfordBirthTime - set to the value of Rockford Birth Time in KECK
+  - AmoebaLimit - set to the value of Amoeba Limit in KECK
+  - AmoebaGrowsBeforeSpawn - best left as "true" since Krissz Engine seems to grow amoeba before Rockford spawns. Set to "false" if you don't want that.
+  - NoTimeLimit - set to "true" if your cave has No Time Limit set in KECK
+  - ReverseTime - set to "true" if your cave has Reverse Time set in KECK
+  - OpenHorizontalBorders - set to "true" if your cave has Open Borders set to either Horizontal or Both in KECK
+  - OpenVerticalBorders - set to "true" if your cave has Open Borders set to either Vertical or Both in KECK
+  - KrisszSlimePermeability - set to the value (from 0 to 8) of Slime Permeability in KECK
+  - ValueOfASecond - set to the value of Value of a Second in KECK
+  - SingleLife - keep this on "true" if you want Krissz Engine-like behavior where you only get a single attempt at a cave before the high score is recorded.
+  - Additionally, be sure to set the other properties as well (the diamond values, the number of required diamonds, the time limit, the amoeba slow growth time, etc.) as you see them in KECK.
+  - NOTE: Be sure to keep "BorderProperties.wraparound" and "BorderProperties.lineshift" set to "false" for Krissz Engine compatibility, and note that the fractional SlimePermeability setting has no effect when KrisszSlimePermeability is set. Also note that BoulderCaves+ doesn't use the fractional AmoebaThreshold in Krissz Engine mode and it uses AmoebaLimit instead.
+* Your converted cave is now ready to be played in BoulderCaves+ or another compatible engine.
+
+2.2. Converting semi-cloned caves.
+----------------------------------
+
+If you're not the author of the cave but would like to preserve the cave for future personal or community use, and you have access to Krissz Engine Construction Kit, you can use the Semi-Clone feature of KECK to create a limited representation of the cave, then export it with average precision which will require some manual interference (editing cave objects and settings) to make the cave playable. To do it, follow the steps outlined below:
+
+* Find the cave you want to export in the Cave Database on Krissz Engine website.
+* Open the cave in Krissz Engine Construction Kit using the "Semi-Clone" feature.
+* Note that because "Semi-Clone" does not preserve certain elements (namely, Outbox, Hidden Outbox, Magic Wall, Expanding Walls), you will need to play the original cave or watch the demos in order to figure out their location and place them properly before exporting and converting the cave.
+* Once the cave is ready for exporting, click the "eye" icon described as "Preview Cave Image" to download a large-scale (32x32 tiles), detailed representation of the cave in PNG format.
+* Run KrisszConvert on the exported cave image and wait for the procedure to complete to get a BDCFF file, e.g.:
+  ./krisszconvert.py Cave_Image.png BDCFF_File_Name.bd
+* If the conversion succeeds, open the resulting BDCFF file in any text editor and set the Krissz-Engine specific properties under [cave] to the same values that you see in Krissz Engine Construction Kit, namely:
+  - TargetFps - set to the value of Game Speed (Frames Per Second) in KECK
+  - MagicWallStopsAmoeba - set to "true" if "Magic Wall Stops Amoeba" is checked in KECK, otherwise "false"
+  - RockfordBirthTime - set to the value of Rockford Birth Time in KECK
+  - AmoebaLimit - set to the value of Amoeba Limit in KECK
+  - AmoebaGrowsBeforeSpawn - best left as "true" since Krissz Engine seems to grow amoeba before Rockford spawns. Set to "false" if you don't want that.
+  - NoTimeLimit - set to "true" if the cave has No Time Limit set in KECK
+  - ReverseTime - set to "true" if the cave has Reverse Time set in KECK
+  - OpenHorizontalBorders - set to "true" if the cave has Open Borders set to either Horizontal or Both in KECK
+  - OpenVerticalBorders - set to "true" if the cave has Open Borders set to either Vertical or Both in KECK
+  - KrisszSlimePermeability - set to the value (from 0 to 8) of Slime Permeability in KECK
+  - ValueOfASecond - set to the value of Value of a Second in KECK
+  - SingleLife - keep this on "true" if you want Krissz Engine-like behavior where you only get a single attempt at a cave before the high score is recorded.
+  - Additionally, be sure to set the other properties as well (the diamond values, the number of required diamonds, the time limit, the amoeba slow growth time, etc.) as you see them in KECK.
+  - NOTE: Be sure to keep "BorderProperties.wraparound" and "BorderProperties.lineshift" set to "false" for Krissz Engine compatibility, and note that the fractional SlimePermeability setting has no effect when KrisszSlimePermeability is set. Also note that BoulderCaves+ doesn't use the fractional AmoebaThreshold in Krissz Engine mode and it uses AmoebaLimit instead.
+* Note that "Semi-Clone" does not preserve some of the cave properties correctly, assuming default settings instead. It is a good idea to play the original cave and/or watch the demos to learn some of the properties that may not have been set to their intended values when the cave was cloned (e.g. check the time limit, magic wall time, amoeba slow growth time, etc.). You will need to set these properties appropriately in the BDCFF file once you learn their correct values.
+* The converted cave is now ready to be played in BoulderCaves+ or another compatible engine.
+
+2.3. Converting cave snapshots.
+-------------------------------
+
+If you're not the author of the cave and you don't have access to Krissz Engine, or if the cave you want to convert is no longer available on Krissz Engine, but you have a small cave snapshot exported from the cave list, you can convert it with minimum possible precision which will require at least some, and possibly a lot of, manual intervention and editing to make the cave fully playable as originally intended. To do it, follow the procedure outlined below:
+
+* Find the 16x16-tile cave snapshot image (it should be an image produced by clicking the small cave screenshot-like preview icon in the Cave List on Krissz Engine website).
+* Run KrisszConvert on the exported cave image and wait for the procedure to complete to get the BDCFF file, e.g.:
+  ./krisszconvert.py Cave_Image.png BDCFF_File_Name.bd
+* Note that the following elements can't be automatically detected and converted using this method: Outbox, Hidden Outbox, Magic Wall, Expanding Walls. Also, Inbox is indistinguishable from a Voodoo Rockford in this representation, so during conversion, the first encountered Rockford will be treated as an Inbox, and all further ones will be treated as Voodoo Rockfords. This may be, and likely is, not correct in case there are multiple objects like that in the cave, so be sure to double check the converted file and edit it as necessary. Also, Fireflies and Butterflies will all have the same (default) direction because cave preview snapshots do not indicate their intended direction in any way. None of the cave properties can be deduced, since that information isn't available anywhere on the cave image. Therefore, at this point it's a good idea to watch the demo videos of the cave online, if they're available, to figure what the properties of the cave were and where those non-representable elements were (as well as any relevant creature direction changes that may be needed). Depending on the cave this may require a bit or a lot of research and work.
+* If the conversion succeeds, open the resulting BDCFF file in any text editor and set the Krissz-Engine specific properties under [cave] to the values that you believe are appropriate according to your research:
+  - TargetFps - set to the value of Game Speed
+  - MagicWallStopsAmoeba - set to "true" if "Magic Wall Stops Amoeba" should be enabled
+  - RockfordBirthTime - set to the value of Rockford Birth Time
+  - AmoebaLimit - set to the value of Amoeba Limit
+  - AmoebaGrowsBeforeSpawn - best left as "true" since Krissz Engine seems to grow amoeba before Rockford spawns. Set to "false" if you don't want that.
+  - NoTimeLimit - set to "true" if the cave should have no Time Limit.
+  - ReverseTime - set to "true" if the cave should have Reverse Time.
+  - OpenHorizontalBorders - set to "true" if the cave has Open Borders set to either Horizontal or Both.
+  - OpenVerticalBorders - set to "true" if the cave has Open Borders set to either Vertical or Both.
+  - KrisszSlimePermeability - set to the value (from 0 to 8) of Slime Permeability according to Krissz Engine standards.
+  - ValueOfASecond - set to the value of Value of a Second option.
+  - SingleLife - keep this on "true" if you want Krissz Engine-like behavior where you only get a single attempt at a cave before the high score is recorded.
+  - Additionally, be sure to set the other properties as well (the diamond values, the number of required diamonds, the time limit, the amoeba slow growth time, etc.) as you believe they should be.
+  - NOTE: Be sure to keep "BorderProperties.wraparound" and "BorderProperties.lineshift" set to "false" for Krissz Engine compatibility, and note that the fractional SlimePermeability setting has no effect when KrisszSlimePermeability is set. Also note that BoulderCaves+ doesn't use the fractional AmoebaThreshold in Krissz Engine mode and it uses AmoebaLimit instead.
+* Because this method does not preserve certain elements (namely, Inbox vs. Voodoo Rockford, Outbox, Hidden Outbox, Magic Wall, Expanding Walls) and does not represent the original orientation of Butterflies or Fireflies, you will need to play the original cave or watch the demos in order to figure out their location and orientation and place them properly in a compatible cave editor (e.g. BoulderCaves+ Construction Kit) or by manually editing the text file.
+* The converted cave is now ready to be played in BoulderCaves+ or another compatible engine.
+
+3. Options.
+-----------
+
+KrisszConvert supports several command-line options. It is usually not necessary to enable most of them except for the -a option to specify the author's name and the -b option if batch conversion is desired, but enabling other options may be required in certain specialized contexts or corner cases. The supported options are:
+
+-a (--author) - Specify the author of the cave, e.g.: -a Arno. The name will be written into the output BDCFF format during conversion.
+
+-b (--batch) - Run the converter in batch conversion mode where multiple PNG files are converted into BDCFF format with a single invocation. When this parameter is specified, KrisszConvert expects you to specify the input folder and the output folder (instead of the input file and the output file) because multiple files will be processed at once. For example, the following invocation will convert all the PNG images in the "cave_images" folder to BDCFF files in the "cave_BDCFF" folder: ./krisszconvert.py -b cave_images cave_BDCFF
+
+-s (--smallmap) - Explicitly set the converter to expect a 16x16 small tile cave representation (the Cave Preview image). Note that even if this option is not enabled, the converter will first assume a 32x32 large tile cave representation, but if the conversion fails, it will automatically switch to the 16x16 small tile cave mode and try again. However, if you know that you're converting only small-tile cave snapshots and you're doing a big batch conversion, specifying this option will make the conversion faster. Note that if the converter encounters a 32x32 large-tile cave image when this parameter is specified, it will not automatically switch to large tile cave mode and the conversion will fail.
+
+-o (--openborder) - Enables experimental open border heuristics that will attempt to determine whether the horizontal and/or vertical borders of the cave should likely be set to "true" (open) or "false" (closed) depending on the cave configuration, and will automatically set the appropriate options in the output BDCFF file. Note that this solely depends on whether the border row and column tiles have open elements (Empty or Dirt) on them, so the algorithm may actually guess incorrectly - be sure to double check against the original cave properties and/or demonstration videos to ascertain the validity of the choice.
+
+-g (--gdash) - Enables GDash mode, in which the converter will try to produce a file that has maximum possible compatibility with GDash. Note that, by itself, GDash is not a Krissz Engine-compatible engine, it doesn't have the Light Boulder element and it doesn't support many of the exclusive features that only Krissz Engine has (and its compatible clones such as BoulderCaves+). It also doesn't support many of the unusual cave sizes that Krissz Engine allows. Therefore, not all caves can be fully converted in a compatible manner. However, in this mode, KrisszConvert will do its best to represent as much as possible for GDash. For example, "Blifil" is actually playable after GDash-compatible conversion is performed and the appropriate cave properties (especially the border wraparound, which enables open vertical borders in GDash) are set. If the original cave has any Light Boulders present, KrisszConvert will issue a warning indicating that the cave can't be completely represented in current GDash revision. None of the cave properties that are exclusive to Krissz Engine are written into the BDCFF file when in GDash mode. When GDash mode is combined with open border heuristics (see the -o option above), it will automatically set "BorderProperties.wraparound" to "true" if it detects an open vertical border. Also, this mode disables lineshift since Krissz Engine doesn't support it. Note that GDash seems to always treat the horizontal border as open, so there is no currently known way to specify a closed horizontal border.
+
+After these options (if any) and after the input and the output file are specified on the command line, it is possible to specify the colors of the cave explicitly. In 99.9% of cases, it shouldn't be necessary to do that, since KrisszConvert will attempt to auto-detect the cave colors using two different AI algorithms. All 4-color caves and the absolute majority of 3-color caves that do not look fully washed out will be successfully auto-detected and will not need any manual specification. However, should this fail for any reason, you can specify the colors explicitly one by one using the hex color codes preceded with a number sign, e.g.:
+
+    ./krisszconvert.py input.png output.bd #000000 #ffffff #a3a3a3 #64e5ff
+
+4. Dealing with failed conversions.
+-----------------------------------
+
+At the moment, KrisszConvert was tested on several hundred caves both in 32x32 large tile mode and in 16x16 small tile mode and has shown a high degree of reliability on caves of different sizes, with different (open/closed) borders, and with different color palettes, so for most caves available in Krissz Engine, you shouldn't encounter problems.
+
+If you do encounter a conversion failure, there is a high chance that it has to do with the fact that the cave color palette was, for some reason, identified incorrectly. In the rare occasions where it may happen, consider specifying the cave palette colors manually on the command line (see [3] above).
+
+In GDash mode, trying to convert a cave with any Light Boulders in it will issue a warning. In this case, only a partial conversion is possible, and the output file will contain the relevant locations marked a LIGHTBOULDER, but GDash will not be able to process them and will replace those elements with a Titanium Wall when the cave is loaded. This is not considered an issue with KrisszConvert since there's (as of this moment) no support for Light Boulders in GDash.
+
+If you're running the converter in small 16x16 tile cave mode (-s or --small option is specified), make sure that the image you're trying to convert is not a large 32x32 tile cave. If it is, remove the -s parameter from the command line and try again.
+
+If all the above precautions are taken care of, but the conversion still fails, please also make sure that the configuration file "krisszconvert.ini" that contains training data for the AI was not modified in any way, as that file is not meant for any manual modification. If you believe you may have a corrupt configuration file, try restoring it from a backup or generate a new one using the "hashmaker.py" script in the "hashmaker" folder (check [5] below for additional details on this utility).
+
+In case you encounter a problem with KrisszConvert not covered with the protocol above, please consider treating it as a bug and reporting it to the author of the converter for consideration and possible correction.
+
+5. Technical details.
+---------------------
+
+This chapter contains some technical details of how KrisszConvert operates that are generally not required for the use of the tool. However, if you wish to improve the algorithm, re-train it to use a different tile set, or if you're simply interested in the technical implementation details, read on.
+
+KrisszConvert uses PIL to load a PNG image and then process it in a way that converts it to a BDCFF representation.
+The conversion is based on a hashed representation of the tiles used in Krissz Engine with default colors (which are assumed to be, from left to right, as follows: #000000 #ffffff #646464 #a36e30) and with different 4-color and 3-color permutations of these colors.
+If other colors are used in the cave (which is almost always the case), KrisszConvert will try to auto-detect the used colors in two different ways (by forward-scanning the image and trying various combinations of color sets and object hashes and then, if that fails, by selectively comparing patterns of a boulder or a diamond object if at least one of those is present anywhere in the cave). If detecting colors fails while in large PNG mode, the converter will automatically switch to small PNG mode and try again with 16x16 tiles in mind.
+Please note that some (very rare) three-color caves and all two-color caves will both fail to auto-detect and fail to convert using this algorithm, because the difference between some objects can't be established with those color combinations. If this happens, it is recommended that you temporarily modify the colors in the Krissz Engine construction kit to a full 4-color palette before converting the cave for best results (you can then replace the colors in the converted file with the original three-tone or two-tone set again if desired).
+Two-tone caves, if caves like that exist, must always be manually tweaked in the construction kit to use four colors before conversion.
+
+The tile matching algorithm is based on hash values obtained with a special algorithm and stored in the file "krisszconvert.ini". Please note that this file is not meant for manual modification, modifying it manually in any way will likely result in failed conversions.
+
+If you need to regenerate "krisszconvert.ini" for any reason, for example, if Krissz Engine changes its icons to a different set, you will need to do the following:
+* In the "hashmaker" folder, edit the files large.png and small.png to match the tile set currently used in Krissz Engine. Note that the elements in these files should follow a certain order - check the HASH_ORDER and HASH_ORDER_SMALL definitions in the "hashmaker.py" script for details. The large.png file should contain 32x32 tiles from KECK, the small.png file should contain 16x16 tiles from the cave preview. Try to use the default colors mentioned above if at all possible. If impossible or if the defaults have changed, you'll need to modify both krisszconvert.py and hashmaker.py to match the new (or custom) default color palette.
+* Run the "hashmaker.py" script in the same folder as large.png and small.png and wait for it to complete. This should only take a few seconds on any modern machine. If this operation succeeds, you should see the generated krisszconvert.ini file, which you should then place in the same folder as krisszconvert.py (be sure to keep the original version of that file somewhere safe in case you need to revert to it).
+
+6. Closing thoughts.
+--------------------
+
+I made this program with the sincere intent of making the amazing Krissz Engine cave collection preservable and accessible for many years to come. I hope that the community will find this effort useful and I hope that some of the cave authors will consider sharing their BCDFF exports with the community and the world. Enjoy!

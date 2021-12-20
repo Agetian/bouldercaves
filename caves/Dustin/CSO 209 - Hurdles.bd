@@ -1,0 +1,57 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #dcb8a3 #ebc2b1 #766e50
+
+[BDCFF]
+[game]
+Name=CSO #209 - Hurdles
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2021-12-04
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #209
+Intermission=false
+CaveTime=30
+DiamondsRequired=4
+DiamondValue=100 0
+AmoebaTime=60
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=11 11
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #766e50 #ebc2b1 #dcb8a3 #dcb8a3 #dcb8a3
+
+[map]
+XXXXXXXXXXX
+X  WWWWW  X
+X q..d..o X
+XW.WW.WW.WX
+XW.We.eW.WX
+XWd..P..dWX
+XW.We.eW.WX
+XW.WW.WW.WX
+X O..d..Q X
+X  WWWWW  X
+XXXXXXXXXXX
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

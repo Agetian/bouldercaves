@@ -1,0 +1,69 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #fdf7ce #a274b1 #8e4d25
+
+[BDCFF]
+[game]
+Name=CSO #206 - Bouldermondster
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2021-11-27
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #206
+Intermission=false
+CaveTime=50
+DiamondsRequired=1
+DiamondValue=100 100
+AmoebaTime=1
+MagicWallTime=1
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=29 23
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=0
+Colors=#000000 #000000 #8e4d25 #a274b1 #fdf7ce #fdf7ce #fdf7ce
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWaWWWaaaaaaaaaaaWWWaWWWWW
+WWWaaaaaWWWWWWWWWWWWWaaaaaWWW
+WWaaaaaaaWWWWW.WWWWWaaaaaaaWW
+WWaaaaaaaWWWW...WWWWaaaaaaaWW
+WaaaaaaaaaWW.aaa.WWaaaaaaaaaW
+WWaaaaaaaWW.aaaaa.WWaaaaaaaWW
+WWaaaaaaaW..aaaaa..WaaaaaaaWW
+WWWaaaaaW...aaaaa...WaaaaaWWW
+WWWWWaWW.....aaa.....WWaWWWWW
+WWaaWWW....a.....a....WWWaaWW
+WaaaaWWW..aaa...aaa..WWWaaaaW
+WWaaWWWWWaaaWWWWWaaaWWWWWaaWW
+WWWWWWWWWWaaW.r.WaaWWWWWWWWWW
+WWWWWWWWWWWaW.P.WaWWWWWWWWWWW
+WWWWWWWWWWWsW.M.WsWWWWWWWWWWW
+WWWWWWWWWW.........WWWWWWWWWW
+WWWWWWWWW..WWWWWWW..WWWWWWWWW
+WWWWWWWWW...........WWWWWWWWW
+WWWWWWWWWWWWWrsrWWWWWWWWWWWWW
+WWWWWWWWWWWWWrOrWWWWWWWWWWWWW
+WWWWWWWWWWWWWr rWWWWWWWWWWWWW
+WWWWWWWWWWWWWWXWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

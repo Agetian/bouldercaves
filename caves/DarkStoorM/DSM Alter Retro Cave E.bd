@@ -1,0 +1,68 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #ffffff #d29e74 #614327
+
+[BDCFF]
+[game]
+Name=DSM Alter Retro Cave E
+Description=A converted Krissz Engine cave
+Author=DarkStoorM
+WWW=
+Date=2020-05-02
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=DSM Alter Retro Cave E
+Intermission=false
+CaveTime=150
+DiamondsRequired=6
+DiamondValue=10 40
+AmoebaTime=60
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=39 21
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=false
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #614327 #d29e74 #ffffff #ffffff #ffffff
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWW...................WWWWWWWWWW
+WWWWWWW.........................WWWWWWW
+WWWWW.............................WWWWW
+WWWW...............................WWWW
+WWW.................................WWW
+WWW...  q..W..  q..W..  q..W..  q...WWW
+WW....   ..W..   ..W..   ..W..   ....WW
+WW....Qd ..W..Qd ..W..Qd ..W..Qd ....WW
+WW........WWW.....WWW.....WWW........WW
+X.P...WWWWWWWWWWWWWWWWWWWWWWWWWWW.....W
+WW........WWW.....WWW.....WWW........WW
+WW....  q..W..  q..W..  q..W..  q....WW
+WW....   ..W..   ..W..   ..W..   ....WW
+WWW...Qd ..W..Qd ..W..Qd ..W..Qd ...WWW
+WWW.................................WWW
+WWWW...............................WWWW
+WWWWW.............................WWWWW
+WWWWWWW.........................WWWWWWW
+WWWWWWWWWW...................WWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

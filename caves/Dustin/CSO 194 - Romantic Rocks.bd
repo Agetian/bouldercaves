@@ -1,0 +1,56 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #ffffff #802927 #a693da
+
+[BDCFF]
+[game]
+Name=CSO #194 - Romantic Rocks
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2021-10-17
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #194
+Intermission=false
+CaveTime=80
+DiamondsRequired=4
+DiamondValue=100 0
+AmoebaTime=60
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=11 10
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #a693da #802927 #ffffff #ffffff #ffffff
+
+[map]
+WWWWWWWWWWW
+W.........W
+W...rrr...W
+W..WxrwW..W
+W.........W
+W....P....W
+W....w....W
+W...   ...W
+W... O ...W
+WWWWWXWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

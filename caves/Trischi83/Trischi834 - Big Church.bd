@@ -1,0 +1,70 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #737373 #e0cc31 #d1c958
+
+[BDCFF]
+[game]
+Name=Trischi834 - Big Church
+Description=A converted Krissz Engine cave
+Author=Trischi83
+WWW=
+Date=2016-10-28
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=Big Church
+Intermission=false
+CaveTime=350
+DiamondsRequired=250
+DiamondValue=1 600
+AmoebaTime=250
+AmoebaThreshold=0.227300
+MagicWallTime=20
+SlimePermeability=0.015625
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=40 22
+TargetFps=6.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=999
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #d1c958 #e0cc31 #737373 #737373 #737373
+
+[map]
+  .cwc.                               aa
+  .cwc.                                a
+ .cwwwc.                                
+ .cwwwc. d       d       d       d      
+ .cw wc. W   d   W   d   W   d   W   d  
+ .cw wc.dWd  w  dWd  w  dWd  w  dWd  w  
+.ccwwwccWdW dwd WdW dwd WdW dwd WdW dwd 
+.cwwrwwcWdW www WdW www WdW www WdW www 
+.cwrrrwcWdW.....WdW.....WdW.....WdW www 
+.cwwrwwcWdWcccccWdWcccccWdWcccccWdW www 
+.cwwwwwcWdW.....WdW.....WdW.....WdW www 
+.cww wwcWdW..c..WdW..c..WdW..c..WdW.www 
+.cww wwcWdW.ccc.WdW.ccc.WdW.ccc.WdWc.ww 
+.cwdwdwcWdW.coccWdW.coc.WdW.coc.WdWc.ww 
+.cwWwWwcWdWcooocWdWcooocWdWcooocWdWc.ww 
+.cwWwWwcWdWco ocWdWco ocWdWco ocWdWc.ww 
+.cwwwwwcWdWco ocWdWco ocWdWco ocWdWc.ww 
+.cww wwcWdWco ocWdWco ocWdWco ocWdWc.ww 
+.cwwwwwcWdWco ocWdWco ocWdWco ocWdWc.ww 
+.cwwWwwcWdWcooocWdWcooocWdWcooocWdWc.ww 
+.cwWWWwcWdWcccccWdWcccccWdWcccccWdWc.ww 
+.cwWWWwcWdX.....WdW.....WdW.....WdWc.wwP
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

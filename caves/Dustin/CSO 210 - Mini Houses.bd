@@ -1,0 +1,67 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #a79df9 #a87ec1 #994b6d
+
+[BDCFF]
+[game]
+Name=CSO #210 - Mini Houses
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2021-12-07
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #210
+Intermission=false
+CaveTime=50
+DiamondsRequired=9
+DiamondValue=100 0
+AmoebaTime=60
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=5 20
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=false
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #994b6d #a87ec1 #a79df9 #a79df9 #a79df9
+
+[map]
+WWWWW
+W O W
+W...W
+W.P.W
+W.r.W
+W...W
+W...W
+W.r.W
+Wr.rW
+WrrrW
+W...W
+W c W
+W...W
+W.r.W
+W...W
+W...W
+W.r.W
+Wr.rW
+WrrrW
+WWXWW
+
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

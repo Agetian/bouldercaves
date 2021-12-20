@@ -1,0 +1,63 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #ffffff #b092dc #313586
+
+[BDCFF]
+[game]
+Name=CSO #143 - Convert Me If You Can
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2021-05-01
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #143
+Intermission=false
+CaveTime=50
+DiamondsRequired=1
+DiamondValue=100 20
+AmoebaTime=60
+AmoebaThreshold=0.227300
+MagicWallTime=20
+SlimePermeability=0.015625
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=13 15
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=true
+OpenVerticalBorders=true
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #313586 #b092dc #ffffff #ffffff #ffffff
+
+[map]
+             
+             
+             
+      *      
+      M      
+             
+             
+   P     X   
+             
+             
+      *      
+      .      
+             
+             
+             
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

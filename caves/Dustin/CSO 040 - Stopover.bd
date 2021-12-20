@@ -1,0 +1,60 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #baa8eb #602d63 #b4bd78
+
+[BDCFF]
+[game]
+Name=CSO #40 - Stopover
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2020-06-14
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #40
+Intermission=false
+CaveTime=30
+DiamondsRequired=3
+DiamondValue=100 0
+AmoebaTime=60
+MagicWallTime=3
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=7 14
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=1
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #b4bd78 #602d63 #baa8eb #baa8eb #baa8eb
+
+[map]
+WWWWWWW
+WWWdWWW
+WWWdWWW
+WWWdWWW
+WWWrWWW
+W  P  W
+W     W
+W     X
+W     W
+W  Q  W
+W     W
+W     W
+WMMMMMW
+WWWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

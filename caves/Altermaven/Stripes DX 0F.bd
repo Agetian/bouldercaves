@@ -1,0 +1,71 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #aa55ff #5500aa #000055
+
+[BDCFF]
+[game]
+Name=Stripes DX 0F
+Description=A converted Krissz Engine cave
+Author=Altermaven
+WWW=
+Date=2021-09-13
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=Stripes DX 0F
+Intermission=false
+CaveTime=150
+DiamondsRequired=150
+DiamondValue=18 15
+AmoebaTime=60
+MagicWallTime=120
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=32 24
+TargetFps=8.0
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=false
+NoTimeLimit=false
+ReverseTime=true
+OpenHorizontalBorders=true
+OpenVerticalBorders=true
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #000055 #5500aa #aa55ff #aa55ff #aa55ff
+
+[map]
+w.r....rw...... wd..r...w..d.d..
+.w.......w......Xw...r..rw..r.rr
+..wr.....dw....rd.wrrr.rd.w.r.d.
+.rrwdd..d..wr...d.rw.r.rd.dw.r..
+.r.rw..rrd..w....r..w...d.rdwd..
+..r..w..r..r.w..rddd.wr..d...wd.
+...r..w.......w.rrd.r.w.dr....w.
+...rd..wr...r..wr.r..d.w.d.....w
+w.d..r..w.....r.wr.rdd.dwr..rd..
+.w.r.P...w.......wd......w.....r
+..wr....rrw.rr.r..wd.r..r.w.rr..
+.r.wr.r.d..w.......w.rr....w...r
+r...wr.r...dw..d.r..w..rd...w..r
+.rd..w..d..d.w.......wdd.....w..
+......wd......w..d....w.r.r...wr
+rrr.d..w.d.rrr.w..r..r.w.....r.w
+wddrr..XMr.rr.d.w.......wrr.....
+.w.r.... M.rrr..rw.dr....w......
+..wr....r M.rdr.r.w.r.....w.....
+...wddd... M.......w.dd...rw..dr
+.rr.w..rrr. M.d.r.d.w.r...r.w...
+.d.r.wr..... Mrdr..d.wd..r.rrw..
+......w...d.r M.d.rr.dw.rd....wr
+r......w.r.... Md.d....w....rrdw
+
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

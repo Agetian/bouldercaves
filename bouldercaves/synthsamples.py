@@ -1,7 +1,13 @@
 """
+Boulder Caves+ - a Boulder Dash (tm) clone.
+Krissz Engine-compatible remake based on Boulder Caves 5.7.2.
+
 Synthesized samples.
 
-Written by Irmen de Jong (irmen@razorvine.net) - License: GNU GPL 3.0, see LICENSE
+Original version written by Irmen de Jong (irmen@razorvine.net)
+Extended version by Michael Kamensky
+
+License: GNU GPL 3.0, see LICENSE
 """
 
 import time

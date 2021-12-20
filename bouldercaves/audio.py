@@ -1,7 +1,13 @@
 """
 Various audio output options. Here the specific audio library code is located.
+Supported audio output libraries:
+- miniaudio
+- sounddevice (both thread+blocking stream, and nonblocking callback stream variants)
+
 It can play multiple samples at the same time via real-time mixing, and you can
-loop samples as well without noticeable overhead (great for continuous effects or music)
+loop samples as well without noticable overhead (great for continous effects or music)
+Wav (PCM) files and .ogg files can be loaded (requires oggdec from the
+vorbis-tools package to decode those)
 
 High level api functions:
   init_audio
@@ -9,7 +15,9 @@ High level api functions:
   silence_audio
   shutdown_audio
 
-Written by Irmen de Jong (irmen@razorvine.net)
+Original version written by Irmen de Jong (irmen@razorvine.net)
+Extended version by Michael Kamensky
+
 License: GNU GPL 3.0, see LICENSE
 """
 
@@ -17,6 +25,7 @@ import pkgutil
 import time
 import tempfile
 import os
+import random
 import subprocess
 from typing import Union, Dict, Tuple
 from synthplayer import streaming, params as synth_params
@@ -105,6 +114,24 @@ def init_audio(samples_to_load) -> SoundEngine:
 
 def play_sample(samplename, repeat=False, after=0.0):
     return sound_engine.play_sample(samplename, repeat, after)
+
+# Krissz Engine specific boulder fall sound, a choice from one of two possibilities
+def play_krissz_boulder_sample(repeat=False, after=0.0):
+    return sound_engine.play_sample(random.choice(["boulder", "boulder2"]), repeat, after)
+
+# Krissz Engine sometimes plays a single diamond fall sound, and sometimes two overlapping diamond fall sounds
+def play_krissz_diamond_sample():
+    diamond_sounds = [1, 2, 3, 4, 5, 6]
+    first_sound = random.choice(diamond_sounds)
+    sound_engine.play_sample("diamond" + str(first_sound))
+    if random.randint(1, 2) == 2: # 50% chance. Consider revising?
+        diamond_sounds.remove(first_sound)
+        sound_engine.play_sample("diamond" + str(random.choice(diamond_sounds)), after=0.170)
+
+def play_timeout_sample(id):
+    for i in range(9):
+        silence_audio("timeout" + str(i))
+    sound_engine.play_sample("timeout" + str(id))
 
 
 def silence_audio(sid_or_name=None):

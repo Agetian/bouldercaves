@@ -1,0 +1,62 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #e3e2c2 #89a2d2 #254d9c
+
+[BDCFF]
+[game]
+Name=CSO #184 - Slime Time
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2021-09-15
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #184
+Intermission=false
+CaveTime=50
+DiamondsRequired=1
+DiamondValue=100 0
+AmoebaTime=60
+MagicWallTime=3
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=31 16
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=4
+Colors=#000000 #000000 #254d9c #89a2d2 #e3e2c2 #e3e2c2 #e3e2c2
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W...W....W.....P.....W....W...W
+W.W.W.WW.W.W.......W.W.WW.W.W.W
+W.W.W.W..W.W...*...W.W..W.W.W.W
+W.W.W.W.WW.W.......W.WW.W.W.W.W
+W.W.W.W.W..W.WMWMW.W..W.W.W.W.W
+W.W.W.W.W.WW.WOsbW.WW.W.W.W.W.W
+W.W.W.W.W.W..W W W..W.W.W.W.W.W
+W.W.W.W.W.W.WW W WW.W.W.W.W.W.W
+W.W.W.W.W.W.W  W  W.W.W.W.W.W.W
+W.W.W.W.W.W.WWWdWWW.W.W.W.W.W.W
+W.W...W...W....%....W...W...W.W
+W.WWWWWWWWWsss...sssWWWWWWWWW.W
+W...........sssssss...........W
+WWWWWWWWWWW.... ....WWWWWWWWWWW
+WWWWWWWWWWWWWWWXWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

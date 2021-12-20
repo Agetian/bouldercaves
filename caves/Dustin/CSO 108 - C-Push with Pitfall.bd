@@ -1,0 +1,52 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #edc6b0 #82948f #29414e
+
+[BDCFF]
+[game]
+Name=CSO #108 - C-Push With Pitfall
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2020-12-19
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #108
+Intermission=false
+CaveTime=30
+DiamondsRequired=1
+DiamondValue=100 0
+AmoebaTime=60
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=8 6
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #29414e #82948f #edc6b0 #edc6b0 #edc6b0
+
+[map]
+WWWWWWWW
+W.*...PW
+W......W
+WWWM...W
+XQ ....W
+WWWWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

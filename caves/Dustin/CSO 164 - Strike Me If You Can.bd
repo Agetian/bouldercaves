@@ -1,0 +1,57 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #ffffff #33512a #e2a7ca
+
+[BDCFF]
+[game]
+Name=CSO #164 - Strike Me If You Can
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2021-07-04
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #164
+Intermission=false
+CaveTime=30
+DiamondsRequired=10
+DiamondValue=100 0
+AmoebaTime=60
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=9 11
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #e2a7ca #33512a #ffffff #ffffff #ffffff
+
+[map]
+WWWWWWWWW
+W   P   W
+W wwwww W
+W wrcdw W
+W ww.ww W
+W  ...  W
+WWW.r.WWW
+WWW...WWW
+W  WXW  W
+Wo WWWo W
+WWWWWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

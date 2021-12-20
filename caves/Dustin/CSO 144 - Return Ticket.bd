@@ -1,0 +1,68 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #dfbacf #812d44 #b3a1d5
+
+[BDCFF]
+[game]
+Name=CSO #144 - Return Ticket
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2021-05-05
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #144
+Intermission=false
+CaveTime=60
+DiamondsRequired=2
+DiamondValue=100 100
+AmoebaTime=60
+MagicWallTime=60
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=15 22
+TargetFps=5.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=true
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #b3a1d5 #812d44 #dfbacf #dfbacf #dfbacf
+
+[map]
+w ...  %  ... w
+w ...     ... w
+w ...  %  ... w
+w ...     ... w
+w ...  %  ... w
+w ...     ... w
+w ...  %  ... w
+w ...     ... w
+w ...  %  ... w
+w .*.     .*. w
+w ...  %  ... w
+w .M.     .M. w
+W ...  %  ... X
+w .W.     .P. w
+w ...  %  ... w
+w ...     ... w
+w ...  %  ... w
+w ...     ... w
+w ...  %  ... w
+w ...     ... w
+w ...  %  ... w
+w ...     ... w
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

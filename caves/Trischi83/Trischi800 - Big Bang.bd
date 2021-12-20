@@ -1,0 +1,69 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #3adb34 #d13232 #712fa3
+
+[BDCFF]
+[game]
+Name=Trischi800 - Big Bang
+Description=A converted Krissz Engine cave
+Author=Trischi83
+WWW=
+Date=2016-10-06
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=Trischi800 - Big Bang
+Intermission=false
+CaveTime=300
+DiamondsRequired=200
+DiamondValue=2 800
+AmoebaTime=1
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=40 22
+TargetFps=7.0
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=false
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=3
+Colors=#000000 #000000 #712fa3 #d13232 #3adb34 #3adb34 #3adb34
+
+[map]
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ssssssssssssssssssssssssssssssssssssssss
+cococococoooooooooooooooooooooocococococ
+cococococooooooooooooooooooooooococococo
+cococococoooooooooooooooooooooocococococ
+cococococooooooooooooooooooooooococococo
+cococococoooooooooooooooooooooocococococ
+cococococwwwwwwwwwwwwwwwwwwwwwwococococo
+cococococwPr   wwww...w...w...wcococococ
+cococococwwww wwwww.w.w.w.w.w.wococococo
+cococococwwww dd  d...d.w.d.w.wcococococ
+cococococWWWW WWWWW.W.W.W.W.W.Wococococo
+cococococWWWW WWWWW...W...W...Wcococococ
+cococococWWWWoWWWWWWWWWWWWWWWWWococococo
+cococococccccWccccccccccccccccccococococ
+cococococccccccccccccccccccccccocococrco
+cococococcccccccccccccccccccccccococococ
+cococococccccccccccccccccccccccocococsco
+....................................sos.
+....................................s ss
+X...................................sssa
+
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

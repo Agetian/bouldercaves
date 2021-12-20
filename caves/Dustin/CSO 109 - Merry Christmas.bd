@@ -1,0 +1,56 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #005000 #80ff80 #b39400 #a36e30
+
+[BDCFF]
+[game]
+Name=CSO #109 - Merry Christmas
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2020-12-24
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #109
+Intermission=false
+CaveTime=30
+DiamondsRequired=7
+DiamondValue=100 0
+AmoebaTime=60
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=9 10
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #005000 #a36e30 #b39400 #80ff80 #80ff80 #80ff80
+
+[map]
+WWWWWWWWW
+WWWW WWWW
+WWWd dWWW
+WWWW WWWW
+WWd   dWW
+WWWW WWWW
+WdQ    dW
+WWWWPWWWW
+WWWWdWWWW
+WWWWXWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

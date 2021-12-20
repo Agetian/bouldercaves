@@ -1,0 +1,73 @@
+; written by Bouldercaves.Bdcff by Irmen de Jong
+; last modified 2021-11-24
+
+[BDCFF]
+[game]
+Name=Pong
+Description=A converted Krissz Engine cave
+Author=Basti
+WWW=
+Date=2013-12-22
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=Pong
+Description=
+Intermission=false
+FrameTime=150
+CaveDelay=8
+CaveTime=250
+DiamondsRequired=240
+DiamondValue=10 20
+AmoebaTime=250
+AmoebaThreshold=0.227300
+MagicWallTime=20
+SlimePermeability=0.016
+BorderProperties.wraparound=false
+BorderProperties.lineshift=true
+Size=40 22
+TargetFps=7.0
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #1c4ac9 #f6f7ef #e0e067 #e0e067 #e0e067
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WccrccccccccccccccccccccccccccccccccrccW
+WQW.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW.WQW
+WQW                 P                WQW
+WQW                 W              W WQW
+WQW             a   W              W WQW
+WQW                 W              W WQW
+WQW                 W              W WQW
+WQW                 W                WQW
+WQW                 W                WQW
+WQW                 W                WQW
+WQW                 W                WQW
+WQW                 W                WQW
+WQW                 W                WQW
+WQW W               W                WQW
+WQW W               W                WQW
+WQW W               W                WQW
+WQW W               W                WQW
+WQW                                  WQW
+WQWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWQW
+WccccccccccccccccccccccccccccccccccccccX
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

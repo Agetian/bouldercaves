@@ -1,0 +1,69 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #fafabb #6b0101 #2f8ca3
+
+[BDCFF]
+[game]
+Name=Arno 183 - Action!
+Description=A converted Krissz Engine cave
+Author=Arno
+WWW=
+Date=2016-01-06
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=Arno 183 - Action!
+Intermission=false
+CaveTime=200
+DiamondsRequired=100
+DiamondValue=100 100
+AmoebaTime=200
+AmoebaThreshold=0.227300
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=40 22
+TargetFps=7.0
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=false
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=0
+Colors=#000000 #000000 #2f8ca3 #6b0101 #fafabb #fafabb #fafabb
+
+[map]
+Xrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+........................................
+                                        
+WWW                        WWWW         
+cccW                      WccccW        
+cccW             WWWW     WccccW        
+ccr             WccccW    Wcccr     WWWW
+craW    WWWW    WccccW    WccraW   Wcccc
+WWs    WccccW    rcccW     WWWs    Wcccc
+       WccccW   WarccW              rccc
+        rcccW    sWWW              Warcc
+       WarccW                       sWWW
+        sWWW                            
+                   WWWW                r
+                  WccccW     WWWW     r.
+   WWWW           WccccW    WccccW   r. 
+  WccccW          Wcccr     WccccW  r.  
+  WccccW          WccraW     rcccW  .   
+  Wcccr            WWWs     WarccW      
+  WccraW    WWWW             sWWW      .
+   WWWs    WccccW                     ..
+P          WccccW                    ..a
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

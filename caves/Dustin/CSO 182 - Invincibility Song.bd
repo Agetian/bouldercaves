@@ -1,0 +1,60 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #abe987 #92e77a #394475
+
+[BDCFF]
+[game]
+Name=CSO #182 - Invincibility Song
+Description=A converted map from Krissz Engine
+Author=Dustin
+WWW=
+Date=2021-09-05
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #182
+Intermission=false
+CaveTime=30
+DiamondsRequired=6
+DiamondValue=100 20
+AmoebaTime=1
+AmoebaThreshold=0.5
+MagicWallTime=20
+SlimePermeability=0.015625
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=10 12
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=0
+Colors=#000000 #000000 #394475 #92e77a #abe987 #abe987 #abe987
+
+[map]
+WWWWWWWWWW
+W...WW.QWW
+W.P.WW.WWW
+W...WW.WWW
+W...WW.WWW
+W.d.WW.WWW
+W...WWaWWW
+W.M.WWsWWW
+W...     W
+W.X.     W
+W...     W
+WWWWWWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

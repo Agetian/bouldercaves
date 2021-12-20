@@ -1,0 +1,70 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #0000aa #55ff55 #00aaaa #00aa00
+
+[BDCFF]
+[game]
+Name=Diamond Shuffle
+Description=A converted Krissz Engine cave
+Author=Altermaven
+WWW=
+Date=2021-10-16
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=Diamond Shuffle
+Intermission=false
+CaveTime=250
+DiamondsRequired=200
+DiamondValue=10 10
+AmoebaTime=250
+AmoebaThreshold=0.227300
+MagicWallTime=20
+SlimePermeability=0.015625
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=40 22
+TargetFps=8.0
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #0000aa #00aa00 #00aaaa #55ff55 #55ff55 #55ff55
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WobbooW     X      aa      X     WbboobW
+WbobboW     W     a  a     W     WbobbbW
+WbbobbW     W     a  a     W     WboobbW
+WoboobW     W      aa      W     WobbboW
+Wo bbo.     W              W     .bbb oW
+WoboobW     W              W     WobbboW
+WbbobbW     W              W     WboobbW
+WbobboW     W              W     WbobbbW
+WobbooW     W              W     WbboobW
+WWWWWWW     W              W     WWWWWWW
+WbobboW     W              W     WbbbboW
+WobbbbW     W              W     WobbobW
+WbboobW     W              W     WbobbbW
+WobobbW     W     P        W     WobbooW
+Wbo bb.                          .bbo bW
+WobobbW                          WobbooW
+WbboobW                          WbobbbW
+WobbbbW                          WobbobW
+WbobboW                          WbbbboW
+WWWWWWW                          WWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

@@ -1,5 +1,6 @@
 """
-Boulder Caves - a Boulder Dash (tm) clone.
+Boulder Caves+ - a Boulder Dash (tm) clone.
+Krissz Engine-compatible remake based on Boulder Caves 5.7.2.
 
 Parser for 'Boulder Dash Common File Format' BDCFF cave files.
 Implementation info:
@@ -9,6 +10,8 @@ http://www.gratissaugen.de/erbsen/bdcff.html
 http://www.gratissaugen.de/erbsen/BD-Inside-FAQ.html
 
 Written by Irmen de Jong (irmen@razorvine.net)
+Extended version by Michael Kamensky
+
 License: GNU GPL 3.0, see LICENSE
 """
 
@@ -60,6 +63,20 @@ class BdcffCave:
         self.wraparound = False
         self.color_screen, self.color_border, self.color_fg1, self.color_fg2, self.color_fg3, \
             self.color_amoeba, self.color_slime = [0, 0, 10, 12, 1, 5, 6]
+        # substandard properties for extra features
+        self.target_fps = 7
+        self.lineshift = True
+        self.magic_wall_stops_amoeba = False
+        self.rockford_birth_time = -1
+        self.amoeba_limit = -1
+        self.amoeba_grows_before_spawn = False
+        self.no_time_limit = False
+        self.reverse_time = False
+        self.open_horizontal_borders = False
+        self.open_vertical_borders = False
+        self.value_of_a_second = 1
+        self.single_life = False
+        self.krissz_slime_permeability = -1
 
     def postprocess(self):
         self.name = self.properties.pop("name")
@@ -109,6 +126,7 @@ class BdcffCave:
             raise BdcffFormatError("invalid color spec: " + str(colors))
         self.intermission = self.properties.pop("intermission", "false") == "true"
         self.wraparound = self.properties.pop("borderproperties.wraparound", "false") == "true"
+        self.lineshift = self.properties.pop("borderproperties.lineshift", "true") == "true"
         self.map.postprocess()
         self.height = self.map.height
         self.width = self.map.width
@@ -121,7 +139,31 @@ class BdcffCave:
                 raise BdcffFormatError("cave width or height doesn't match map, in cave " + self.name)
         self.properties.pop("cavedelay", 0)
         self.properties.pop("frametime", 0)
-        self.properties.pop("borderproperties.lineshift", "false")
+        # substandard properties for this extended version
+        self.target_fps = self.properties.pop("targetfps", 7)
+        self.magic_wall_stops_amoeba = self.properties.pop("magicwallstopsamoeba", "false") == "true"
+        if not self.magic_wall_stops_amoeba:
+            self.magic_wall_stops_amoeba = self.properties.pop("magicwallproperties.breakscan", "false") == "true" # BDCFF standard alias
+        else:
+            self.properties.pop("magicwallproperties.breakscan", "false") # Krissz Engine variant takes priority
+        self.amoeba_grows_before_spawn = self.properties.pop("amoebagrowsbeforespawn", "false") == "true"
+        if not self.amoeba_grows_before_spawn:
+            self.amoeba_grows_before_spawn = self.properties.pop("amoebaproperties.waitforhatching", "true") == "false" # BDCFF standard inverted alias
+        else:
+            self.properties.pop("amoebaproperties.waitforhatching", "true") # Krissz Engine variant takes priority
+        self.krissz_slime_permeability = int(self.properties.pop("krisszslimepermeability", "-1"))
+        self.rockford_birth_time = int(self.properties.pop("rockfordbirthtime", "-1"))
+        self.amoeba_limit = int(self.properties.pop("amoebalimit", "-1"))
+        self.no_time_limit = self.properties.pop("notimelimit", "false") == "true"
+        self.reverse_time = self.properties.pop("reversetime", "false") == "true"
+        self.open_horizontal_borders = self.properties.pop("openhorizontalborders", "false") == "true"
+        self.open_vertical_borders = self.properties.pop("openverticalborders", "false") == "true"
+        self.value_of_a_second = int(self.properties.pop("valueofasecond", "1"))
+        if self.value_of_a_second == 1:
+            self.value_of_a_second = int(self.properties.pop("timevalue", "1")) # BDCFF standard alias
+        else:
+            self.properties.pop("timevalue", "1") # Krissz Engine variant takes priority
+        self.single_life = self.properties.pop("singlelife", "false") == "true"
         if self.properties:
             print("\nWARNING: unrecognised cave properties in cave " + self.name + " :")
             print(self.properties, "\n")
@@ -131,8 +173,8 @@ class BdcffCave:
         if self.objects:
             print(self.objects)
             raise BdcffFormatError("cave uses [objects] to create the map, we only support [map] right now")
-        if self.width < 4 or self.width > 100 or self.height < 4 or self.height > 100:
-            raise BdcffFormatError("invalid width and/or height (4-100)")
+        if self.width < 2 or self.width > 100 or self.height < 2 or self.height > 100:
+            raise BdcffFormatError("invalid width and/or height (2-100)")
         if self.slimepermeability < 0 or self.slimepermeability > 1:
             raise BdcffFormatError("invalid SlimePermeability")
         if self.amoebafactor < 0 or self. amoebafactor > 1:
@@ -141,7 +183,7 @@ class BdcffCave:
                 self.magicwalltime < 0 or self.magicwalltime > 999 or\
                 self.amoebatime < 0 or self.amoebatime > 999:
             raise BdcffFormatError("invalid time property")
-        if self.diamondvalue_normal < 0 or self.diamondvalue_normal > 99 or self.diamondvalue_extra < 0 or self.diamondvalue_extra > 99:
+        if self.diamondvalue_normal < 0 or self.diamondvalue_normal > 999 or self.diamondvalue_extra < 0 or self.diamondvalue_extra > 999:
             raise BdcffFormatError("invalid diamond value")
         if self.diamonds_required < -999 or self.diamonds_required > 999:
             raise BdcffFormatError("invalid DiamondsRequired")
@@ -154,15 +196,32 @@ class BdcffCave:
         out.write("FrameTime=150\n")
         out.write("CaveDelay={:d}\n".format(3 if self.intermission else 8))
         out.write("CaveTime={:d}\n".format(self.cavetime))
+        out.write("TimeValue={:d}\n".format(self.value_of_a_second))
         out.write("DiamondsRequired={:d}\n".format(self.diamonds_required))
         out.write("DiamondValue={:d} {:d}\n".format(self.diamondvalue_normal, self.diamondvalue_extra))
         out.write("AmoebaTime={:d}\n".format(self.amoebatime))
         out.write("AmoebaThreshold={:f}\n".format(self.amoebafactor))
+        out.write("AmoebaProperties.waitforhatching={:s}\n".format("true" if not self.amoeba_grows_before_spawn else "false"))
         out.write("MagicWallTime={:d}\n".format(self.magicwalltime))
+        out.write("MagicWallProperties.breakscan={:s}\n".format("true" if self.magic_wall_stops_amoeba else "false"))
         out.write("SlimePermeability={:.3f}\n".format(self.slimepermeability))
         out.write("BorderProperties.wraparound={:s}\n".format("true" if self.wraparound else "false"))
-        out.write("BorderProperties.lineshift=true\n")
+        out.write("BorderProperties.lineshift={:s}\n".format("true" if self.lineshift else "false"))
         out.write("Size={:d} {:d}\n".format(self.width, self.height))
+        # substandard properties for the extended version of Boulder Caves, matching Krissz Engine cave properties
+        out.write("; Krissz Engine cave properties\n")
+        out.write("TargetFps={:.1f}\n".format(self.target_fps))
+        out.write("MagicWallStopsAmoeba={:s}\n".format("true" if self.magic_wall_stops_amoeba else "false"))
+        out.write("RockfordBirthTime={:d}\n".format(self.rockford_birth_time))
+        out.write("AmoebaLimit={:d}\n".format(self.amoeba_limit))
+        out.write("AmoebaGrowsBeforeSpawn={:s}\n".format("true" if self.amoeba_grows_before_spawn else "false"))
+        out.write("NoTimeLimit={:s}\n".format("true" if self.no_time_limit else "false"))
+        out.write("ReverseTime={:s}\n".format("true" if self.reverse_time else "false"))
+        out.write("OpenHorizontalBorders={:s}\n".format("true" if self.open_horizontal_borders else "false"))
+        out.write("OpenVerticalBorders={:s}\n".format("true" if self.open_vertical_borders else "false"))
+        out.write("ValueOfASecond={:d}\n".format(self.value_of_a_second))
+        out.write("SingleLife={:s}\n".format("true" if self.single_life else "false"))
+        out.write("KrisszSlimePermeability={:d}\n".format(self.krissz_slime_permeability))
 
         def outputcolor(color: Union[int, str]) -> str:
             if isinstance(color, str):
@@ -243,6 +302,7 @@ class BdcffParser:
         out.write("Fontset={:s}\n".format(self.fontset))
         out.write("Levels={:d}\n".format(self.num_levels))
         out.write("Caves={:d}\n".format(self.num_caves))
+        out.write("BonusLife={:d}\n".format(self.bonus_life_points))
         out.write("\n")
         for cave in self.caves:
             cave.write(out)
@@ -261,6 +321,7 @@ class BdcffParser:
         self.date = self.game_properties.pop("date", "")
         self.charset = self.game_properties.pop("charset", "Original")
         self.fontset = self.game_properties.pop("fontset", "Original")
+        self.bonus_life_points = int(self.game_properties.pop("bonuslife", 500))
         if self.game_properties:
             print("\nWARNING: unrecognised bdcff properties:")
             print(self.game_properties, "\n")

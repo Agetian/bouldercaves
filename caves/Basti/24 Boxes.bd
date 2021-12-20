@@ -1,0 +1,73 @@
+; written by Bouldercaves.Bdcff by Irmen de Jong
+; last modified 2021-11-24
+
+[BDCFF]
+[game]
+Name=24 Boxes
+Description=A converted Krissz Engine cave
+Author=Basti
+WWW=
+Date=2013-12-16
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=24 Boxes
+Description=
+Intermission=false
+FrameTime=150
+CaveDelay=8
+CaveTime=150
+DiamondsRequired=24
+DiamondValue=10 20
+AmoebaTime=60
+AmoebaThreshold=0.227300
+MagicWallTime=20
+SlimePermeability=0.016
+BorderProperties.wraparound=false
+BorderProperties.lineshift=true
+Size=40 22
+TargetFps=7.0
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #16940d #1b6cb8 #ffffff #ffffff #ffffff
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W                                      W
+W XW.WWW.WWW.WWW.WW  WW.WWW.WWW.WWW.WP W
+W W...WrrrW...W..rW  Wr..WrrrWr..W...W W
+W W.d.W.d.Wrd.WrdrW  W.d.W.d.W.d.WrdrW W
+W WrrrW...Wrr.W..rW  W.rrW...W.rrW.r.W W
+W WW.WWW.WWW.WWW.WW  WW.WWW.WWW.WWW.WW W
+W             q                  q     W
+W WW.WWW.WWW.WWW.WW  WW.WWW.WWW.WWW.WW W
+W W...W.r.W.rrW...W  W...W.r.Wr.rW...W W
+W Wr.rWrdrW..rW.d.W  W...WrdrW.r.W.d.W W
+W W.d.W.r.W.d.W.r.W  WrdrW.r.W.d.W.r.W W
+W Wr.rW...W...W.r.W  WrrrW...W...Wr.rW W
+W WW.WWW.WWW.WWW.WW  WW.WWW.WWW.WWW.WW W
+W     q                  q             W
+W WW.WWW.WWW.WWWrWW  WW.WWWrWWW.WWW.WW W
+W WrrrW...Wr..W...W  Wr.rW...W.rrWr..W W
+W W.d.W.drWrd.WrdrW  W.d.W.d.W.drW.d.W W
+W Wr..Wrr.W..rWr.rW  Wr.rW.r.W...W.r.W W
+W WW.WWW.WWW.WWW.WW  WW.WWW.WWW.WWW.WW W
+Wq                 q                  qW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

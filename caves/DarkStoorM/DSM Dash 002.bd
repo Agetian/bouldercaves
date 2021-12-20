@@ -1,0 +1,69 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #fda6e5 #bfb47f #27878d
+
+[BDCFF]
+[game]
+Name=DSM Dash 002
+Description=A converted Krissz Engine cave
+Author=DarkStoorM
+WWW=
+Date=2021-09-19
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=DSM Dash 002
+Intermission=false
+CaveTime=150
+DiamondsRequired=40
+DiamondValue=6 11
+AmoebaTime=60
+MagicWallTime=40
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=40 22
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=false
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #27878d #bfb47f #fda6e5 #fda6e5 #fda6e5
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W.w..wr.w..w..w.rw..w..w..wd.wd.w..w.r.X
+WQw.dw..wr.w.dw..w..w.dw..w..wr.w.rw.. W
+W.w.rw.rwrrw..w..w..w.dw..w..wr.wd.wd.QW
+Wrwr.w..w. w..w..wrrw..w.rwrrw.rw..w r.W
+W.w..w.rwrrw..w..wrrw..w..wrrw..w..w.rrW
+Wr.rrw..wrdwr.w..wrrw..w.Qw..wd.w.rw..rW
+Wd......w.dwrdw.dwr.wr.wrrw.dwr.wr.wr..W
+Wr..w..... wrdw.rw..wr.w.dw..w.rw..w...W
+WrrQwd.w....rrw.rwd.w. w..w.rw..w.rw...W
+W.r.wr.w.dw..... w..w.rwd.w..w..w.rw...W
+W. .wrdw.rw..wr...r.w..w.rwrdw..w..w..dW
+W...w..w.rw..w.rw....d.w.rwrdw..w..w..rW
+W.d.w..w..wd.w..w.dwd.....w.rw..wr.w.r.W
+W.r.wr.wr.w. w..w.dwddw.....rw.dwr.w...W
+W...w.rw  w..w..wrdw.dw .wr...r.w..w..dW
+W...wr.wr.w..w..wrrw.rw.dwr.w....r.w ..W
+Wrr.w..wrrwd.wd.w.rw..wd w.rw..w .....rW
+Wr..w..wrrwd.wd.w.rw..wr.wd.wr.wd.wr...W
+WdPdwr.w.rwr.wr.w..w..wd.w..wrrwd.wr...W
+Wd.rw .w.rwr.wr.w..w.rw.dwr.w.rwrrw....W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

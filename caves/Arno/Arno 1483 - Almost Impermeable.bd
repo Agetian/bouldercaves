@@ -1,0 +1,96 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #bdfe2d #f2ebe1 #ae6020
+
+[BDCFF]
+[game]
+Name=Arno 1483 - Almost Impermeable
+Description=A converted Krissz Engine cave
+Author=Arno
+WWW=
+Date=2021-10-09
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=Almost Impermeable
+Intermission=false
+CaveTime=130
+DiamondsRequired=73
+DiamondValue=100 999
+AmoebaTime=60
+AmoebaThreshold=0.227300
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=17 49
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=10
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=8
+Colors=#000000 #000000 #ae6020 #f2ebe1 #bdfe2d #bdfe2d #bdfe2d
+
+[map]
+WWWWWWWWWWWWWWWWW
+WWw             W
+Waw WsWWWWWWWWW W
+Wsw War..P....W W
+W w WW........W W
+WMw WWW.......W W
+W w WWW.......W W
+W w WWW.......W W
+WMw WWW......OW W
+W w WWW...... W W
+W w WWWWWWWWWWW W
+WMw  waw   waw  W
+W ww  saw was  wW
+W waw  sawas  waW
+WMwsaw  sas  wasW
+W w saw  s  was W
+W w  saw   was  W
+WMww  saw was  wW
+W waw  s   s  waW
+W wsaw       wasW
+WMw saw     was W
+W w  saw   was  W
+W ww  saw was  wW
+WMwaw  s   s  waW
+W wsaw       wasW
+W w saw     was W
+WMw  saw   was  W
+W ww  saw was  wW
+W waw  s   s  waW
+WMwsaw       wasW
+W w saw     was W
+W w  saw   was  W
+WMww  saw was  wW
+W waw  s   s  waW
+W wsaw       wasW
+WMw saw     was W
+W w  saw   was  W
+W ww  saw was  wW
+W waw  s   s  waW
+W wsaw       wasW
+W w saw     was W
+W w  saw   was  W
+W ww  saw was  wW
+W waw  s   s  waW
+W wsaw       wasW
+W w saw     was W
+W v  s       s  W
+X .             W
+WWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

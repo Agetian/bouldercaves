@@ -1,0 +1,96 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #ffffff #0964a1 #22adf2
+
+[BDCFF]
+[game]
+Name=Arno 560
+Description=A converted Krissz Engine cave
+Author=Arno
+WWW=
+Date=2017-07-28
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=Arno 560
+Intermission=false
+CaveTime=150
+DiamondsRequired=500
+DiamondValue=100 100
+AmoebaTime=60
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=49 50
+TargetFps=7.0
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=true
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #22adf2 #0964a1 #ffffff #ffffff #ffffff
+
+[map]
+          wwwwwwwwwwwwwwwwwwwwwwwwwwwww          
+         wdddrdddddddrddddddrdddddddrddw         
+        wddrdddrdddddrddddrddddddrddddddw        
+       wddddddddrddddrdddrddrddddrddddrddw       
+      wdrddwwwwwwwwwwwwwwwwwwwwwwwwwwwddddw      
+     wdddrwddrddrrdddddddrdddddrddddddwddrdw     
+    wddddwdddddddrrdddddddddddddddrdrddwddddw    
+   wrddrwrdddrdddddrdddrrddrddrddddrddddwdddrw   
+  wddrrwdrrrwwwwwwwwwwwwwwwwwwwwwwwwwddrdwrdrrw  
+ wddrdwddrdwddrddrdddddddrddddddrddddwdddrwddddw 
+wddddwddddwddddddddrddddddrdddrdrddrddwrdddwddddw
+wdrrwddrdwdddrddddrdrdddrdddddddrdddrddwdrddwddrw
+wdrdwdddwddrdwwwwwwwwwwwwwwwwwwwwwwwddddwddrwdddw
+wdddwddrwrddwdddrrddddddrdddrdddddddwdddwdddwddrw
+wdrdwrdrwddrwddddrdddddddrdddrddrrrdwddrwdrdwdddw
+wddrwdddwdddwdrdddrdddrddddrddrddddrwdrdwdrdwrdrw
+wrdrwddrwdddwddrwwwwwwwwwwwwwwwwwdddwdddwdrdwdddw
+wdddwddrwdddwdddwdddrddddrdddrddwdrdwddrwddrwrddw
+wdrdwdddwdrrwrrdwdddrddrdrddddrdwdddwdrdwdddwdddw
+wdddwdddwdddwddrwdrdwwwwwwwwwdddwdddwdddwdddwdrrw
+wddrwdrdwdrdwdrdwdddwdddddrdwddrwdrdwddrwdrdwddrw
+wdddwddrwdddwdddwdrrwrdrdddrwdrdwdrdwdrrwdddwdddw
+wdrdwdddwdrdwdddwdddwdddrdddwdddwdddwdddwdrrwrddw
+wrddwrddwrddwdrdwdrdwdrdwrrdwdrdwdddwdddwdddwrddw
+wddrwdrdwdddwdrrwdddwdrrwXddwdrdwrddwdddwrddwrddw
+wdddwdddwdrrwdddwdrrwdrdwwwwwrddwrddwrddwdddwdrdw
+wddrwddrwdddwdddwdddwdrdddrdddddwdrdwdddwrddwdddw
+wrrdwddrwddrwrddwdrdwddddrddddddwdddwdrdwrddwddrw
+wdddwdddwdddwdrdwrddwdrdddddrddrwddrwddrwdrdwddrw
+wdrdwddrwdddwdddwdddwwwwwwwwwwwwwdddwddrwdddwdddw
+wdddwdrdwrrdwddrwdrdrdddddddrddrddddwdddwddrwdrrw
+wddrwrddwddrwdddwddrddrdrddrddddrdrdwdrdwdddwdddw
+wdrdwdddwdddwddrwddrdddrddddrdddddddwrddwdrdwdddw
+wrddwrrrwdrdwdddwwwwwwwwwwwwwwwwwwwwwdddwrddwrddw
+wdddwddrwddrwdrddddddrddrddddddrddddddddwdddwdddw
+wdrdwdddwrddwddrdrddrddddrddrdddddddddrdwdrdwddrw
+wdrdwddrwddrwddddrdrdddrddddrddddddrddrdwdddwdddw
+wddrwdddwddrdwwwwwwwwwwwwwwwwwwwwwwwwwwwddrrwddrw
+wrddwddrdwdddrddddrddddddrddrrddddddddddrddrwrddw
+wddddwddddwrddddrdddrddddrddrdddddrdrddddddwddddw
+ wdrddwdrdrwddrrrddddddrdddddddrrdrddddrddwddddw 
+  wddrdwdddrwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwdddrw  
+   wrrddwdrddrdddddddddrddrdrdddddddrddrddrddw   
+    wddddwrddddddddrrdddddddddddrdddrdddddddw    
+     wdrddwddrdrdddrrdddddrddddddrddrdddrddw     
+      wdrrdwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww      
+       wdddddrddrddddrdddddddddddrddrdddPw       
+        wdddrdddddddddrdrddrddddrdddddddw        
+         wdddddrddrdddddddddrdddrddddrdw         
+          wwwwwwwwwwwwwwwwwwwwwwwwwwwww          
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

@@ -1,0 +1,72 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #8d80f3 #000000 #4b3db7 #4b3db7
+
+[BDCFF]
+[game]
+Name=Blifil
+Description=A converted Krissz Engine cave
+Author=Altermaven
+WWW=
+Date=2021-11-03
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=Blifil
+Intermission=false
+CaveTime=150
+DiamondsRequired=40
+DiamondValue=50 0
+AmoebaTime=60
+AmoebaThreshold=0.227300
+MagicWallTime=20
+SlimePermeability=0.015625
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=40 24
+TargetFps=6.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=true
+OpenHorizontalBorders=true
+OpenVerticalBorders=true
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #8d80f3 #4b3db7 #4b3db7 #000000 #000000 #000000
+
+[map]
+ %d  %d  %d  %d  %d  %d  %d  %d  %d  %d 
+ ww  ww  ww  ww  ww  ww  ww  ww  ww  ww 
+ ww  ww  ww  ww  ww  ww  ww  ww  ww  ww 
+                                        
+w  ww  ww  ww  ww  ww  ww  ww  ww  ww  w
+w  ww  ww  ww  ww  ww  ww  ww  ww  ww  w
+ d%  d%  d%  d%  d%  d%  d%  d%  d%  d% 
+ ww  ww  ww  ww  ww  ww  ww  ww  ww  ww 
+ ww  ww  ww  ww  ww  ww  ww  ww  ww  ww 
+                                        
+w  ww  ww  ww  ww  ww  ww  ww  ww  ww  w
+W  WW  WW  WW  WW  PW  WW  WW  WW  WW  W
+ %d  %d  %d  %d  %d  %d  %d  %d  %d  %d 
+ ww  ww  ww  ww  ww  ww  ww  ww  ww  ww 
+ WW  WW  WW  WW  WX  WW  WW  WW  WW  WW 
+                                        
+w  ww  ww  ww  ww  ww  ww  ww  ww  ww  w
+w  ww  ww  ww  ww  ww  ww  ww  ww  ww  w
+ d%  d%  d%  d%  d%  d%  d%  d%  d%  d% 
+ ww  ww  ww  ww  ww  ww  ww  ww  ww  ww 
+ ww  ww  ww  ww  ww  ww  ww  ww  ww  ww 
+                                        
+w  ww  ww  ww  ww  ww  ww  ww  ww  ww  w
+w  ww  ww  ww  ww  ww  ww  ww  ww  ww  w
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

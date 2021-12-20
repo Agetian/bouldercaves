@@ -1,0 +1,68 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #ffc814 #7a6428 #4a86f7
+
+[BDCFF]
+[game]
+Name=Arno 452
+Description=A converted Krissz Engine cave
+Author=Arno
+WWW=
+Date=2017-01-02
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=Arno 452
+Intermission=false
+CaveTime=400
+DiamondsRequired=300
+DiamondValue=100 100
+AmoebaTime=400
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=40 22
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #4a86f7 #7a6428 #ffc814 #ffc814 #ffc814
+
+[map]
+cccoc. d.r d. d .rdaadrdr.rrdd..cocccooX
+cocrr.rd.d.d rrd.rdaadr.d ..dd. rrrccccc
+ccrrdddddddr.d.ddrddddr r.d ..dddd.rrroc
+co.rr.ddrdd.rrd..rrrrrrdddddrddddr dd.co
+cc.wwdwww.wdwwwdw.w.dw.wdwwwdw.www.ww.cc
+oc.rdr.d.dddrd..rd .d. .dr dddd.rd. d .c
+cc. .r ddr. dd d..dd..dr.. .d..rrdd...co
+ocwdwww.wwdww.www wd w.www.ww.ww www wcc
+cc.drdrdrd.. .. .d.d.  .. dd.. .d.dd.coc
+cwwwwdwwwwowwwwdwwwoowwwrwwwwowwwwdwwwwc
+coo.wdwdddcdddwdwrdccddwdwdrdcdddwdwdd.c
+ccc.wrwrddodrdwrwddoordwdwdrdodrdwdwd.cc
+oc.dwdwddrcdddwrwrrccddwrwddrcddrwdw.cco
+cc.dwrwdddodddwdwddoodrwrwrddodddwrwd.oc
+cwwwwdwwwwcwwwwdwwwccwww.wwwwcwwwwdwwwwc
+ccd..r.dd.ddrr...d.rd...d..drd....d..drc
+cc.  . .. ....   . ..   .  ...    .  .dc
+cc.                                   .c
+oc.             .  P   ..       .     .o
+coc..  .   .  ..c.  ...cc..   ..c.. ..cc
+ccccc..o...c..cccc..cccccoc...cccco.ccco
+ccocccccccocccoccccccoccccccccococccoccc
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

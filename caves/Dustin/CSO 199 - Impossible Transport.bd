@@ -1,0 +1,51 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #b0fbe5 #8f4b34 #c1c574
+
+[BDCFF]
+[game]
+Name=CSO #199 - Impossible Transport
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2021-11-03
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #199
+Intermission=false
+CaveTime=30
+DiamondsRequired=3
+DiamondValue=100 0
+AmoebaTime=60
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=9 5
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #c1c574 #8f4b34 #b0fbe5 #b0fbe5 #b0fbe5
+
+[map]
+WWWWWWWWW
+W*... wdW
+W*.P.QwdX
+W*... wdW
+WWWWWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

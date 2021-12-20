@@ -13,5 +13,5 @@ except ImportError:
 if sys.version_info < (3, 6):
     raise SystemExit("python 3.6 or newer is required to run this game")
 
-user_data_dir = os.path.expanduser("~/.bouldercaves/")
+user_data_dir = os.path.expanduser("~/.bcplus/")
 os.makedirs(user_data_dir, exist_ok=True)

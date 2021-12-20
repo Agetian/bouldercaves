@@ -1,0 +1,54 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #ffffff #a3d1f0 #702542
+
+[BDCFF]
+[game]
+Name=CSO #181 - Expect the Expanding
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2021-09-03
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #181
+Intermission=false
+CaveTime=80
+DiamondsRequired=18
+DiamondValue=100 0
+AmoebaTime=60
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=25 8
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #702542 #a3d1f0 #ffffff #ffffff #ffffff
+
+[map]
+WWWWWWWWWWWWWWWWWWWWWWWWW
+Ww..  b  .......  c  ..wW
+Ww.........vvv.........wW
+Wwr...P...rwwwr...X...rwW
+Ww.........www.........xW
+Ww.........www.........wW
+WwwwwwwwwwwwwwwwwwwwwwwwW
+WWWWWWWWWWWWWWWWWWWWWWWWW
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

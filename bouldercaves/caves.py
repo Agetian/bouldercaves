@@ -1,4 +1,7 @@
 """
+Boulder Caves+ - a Boulder Dash (tm) clone.
+Krissz Engine-compatible remake based on Boulder Caves 5.7.2.
+
 Cave decoding/conversion logic.
 Included here are the (encoded) caves from Boulderdash I  on the Commodore-64.
 More info including the decoding algorithm:
@@ -6,7 +9,9 @@ https://www.elmerproductions.com/sp/peterb/rawCaveData.html#rawCaveDataFormat
 https://www.elmerproductions.com/sp/peterb/insideBoulderdash.html
 http://www.bd-fans.com/FanStuff.html#Programming
 
-Written by Irmen de Jong (irmen@razorvine.net)
+Original version written by Irmen de Jong (irmen@razorvine.net)
+Extended version by Michael Kamensky
+
 License: GNU GPL 3.0, see LICENSE
 """
 
@@ -342,13 +347,33 @@ class Cave:
         self.amoebafactor = defaults.amoebafactor
         self.slime_permeability = defaults.slimepermeability
         self.wraparound = defaults.wraparound
+        self.lineshift = defaults.lineshift
+        self.magic_wall_stops_amoeba = defaults.magic_wall_stops_amoeba
+        self.amoeba_grows_before_spawn = defaults.amoeba_grows_before_spawn
+        self.target_fps = defaults.target_fps
+        self.rockford_birth_time = defaults.rockford_birth_time
+        self.amoeba_limit = defaults.amoeba_limit
+        self.no_time_limit = defaults.no_time_limit
+        self.reverse_time = defaults.reverse_time
+        self.open_horizontal_borders = defaults.open_horizontal_borders
+        self.open_vertical_borders = defaults.open_vertical_borders
+        self.value_of_a_second = defaults.value_of_a_second
+        self.single_life = defaults.single_life
+        self.krissz_slime_permeability = defaults.krissz_slime_permeability
         self.time = defaults.cavetime
         self.colors = Palette()
 
-    def resize(self, target_width: int, target_height: int) -> None:
+    def resize(self, target_width: int, target_height: int, filler_obj: GameObject = objects.FILLERWALL) -> None:
         # make the map bigger, place the original in the center
+        # avoid resizing the map from bigger to smaller
         map2 = []
-        filler = [(objects.EMPTY, Direction.NOWHERE)] * target_width
+        if (self.width > target_width):
+            target_width = self.width
+        if (self.height > target_height):
+            target_height = self.height
+        filler = [(filler_obj, Direction.NOWHERE)] * target_width
+        delta_x = math.floor((target_width - self.width) / 2)
+        delta_y = math.floor((target_height - self.height) / 2)
         for y in range(math.floor((target_height - self.height) / 2)):
             map2.extend(filler)
         for y in range(self.height):
@@ -360,6 +385,37 @@ class Cave:
         assert len(map2) == target_width * target_height
         self.width, self.height = target_width, target_height
         self.map = map2
+        return (delta_x, delta_y)
+    
+    def add_mirrored_borders(self, mirrored_border_size, mirror_horizontal, mirror_vertical):
+        map2 = []
+        mirror = [(objects.BORDER_MIRROR, Direction.NOWHERE)] * self.width
+        mirror_hv = [(objects.BORDER_MIRROR, Direction.NOWHERE)] * (self.width + mirrored_border_size * 2)
+        delta_x = delta_y = 0
+        if mirror_horizontal:
+            delta_x = math.floor(mirrored_border_size)
+        if mirror_vertical:
+            delta_y = math.floor(mirrored_border_size)
+        if mirror_vertical:
+            for y in range(math.floor(mirrored_border_size)):
+                map2.extend(mirror_hv if mirror_horizontal else mirror)
+        if mirror_horizontal:
+            for y in range(self.height):
+                map2.extend(mirror[:math.floor(mirrored_border_size)])
+                map2.extend(self.map[y * self.width: y * self.width + self.width])
+                map2.extend(mirror[:math.ceil(mirrored_border_size)])
+        else:
+            for y in range(self.height):
+                map2.extend(self.map[y * self.width: y * self.width + self.width])
+        if mirror_vertical:
+            for y in range(math.ceil(mirrored_border_size)):
+                map2.extend(mirror_hv if mirror_horizontal else mirror)
+        if mirror_vertical:
+            self.height += 2 * mirrored_border_size
+        if mirror_horizontal:
+            self.width += 2 * mirrored_border_size
+        self.map = map2
+        return (delta_x, delta_y)
 
 
 class C64Cave(Cave):
@@ -369,6 +425,7 @@ class C64Cave(Cave):
         self.randomseed = 0
         self.random_objects = (0, 0, 0, 0)
         self.random_probabilities = (0, 0, 0, 0)
+        self.target_fps = 7 # Default for Boulder Caves, otherwise loaded from BDCFF as TargetFps (substandard)
 
     @classmethod
     def decode_from_lvl(cls, levelnumber: int) -> 'C64Cave':
@@ -522,6 +579,7 @@ class CaveSet:
             self.date = self.bdcff_caves.date
             self.cave_demo = None
             self.num_caves = len(self.bdcff_caves.caves)
+            self.bonus_life_points = self.bdcff_caves.bonus_life_points
         else:
             self.mode = "builtin"
             self.name = "Boulder Dash I"
@@ -529,6 +587,7 @@ class CaveSet:
             self.date = "1984"
             self.cave_demo = CAVE_A_DEMO
             self.num_caves = len(BD1CAVES)
+            self.bonus_life_points = 500
 
     def cave_names(self):
         if self.mode == "builtin":
@@ -554,6 +613,7 @@ class CaveSet:
         cave.date = self.bdcff_caves.date
         cave.intermission = bdcff.intermission
         cave.wraparound = bdcff.wraparound
+        cave.lineshift = bdcff.lineshift
         cave.magicwall_millingtime = bdcff.magicwalltime
         cave.amoeba_slowgrowthtime = bdcff.amoebatime
         cave.diamondvalue_normal = bdcff.diamondvalue_normal
@@ -575,6 +635,19 @@ class CaveSet:
             cave.colors.border = bdcff.color_border if bdcff.color_border >= 0 else 0
         else:
             cave.colors.border = bdcff.color_border
+        # additional substandard properties
+        cave.target_fps = bdcff.target_fps
+        cave.magic_wall_stops_amoeba = bdcff.magic_wall_stops_amoeba
+        cave.amoeba_limit = bdcff.amoeba_limit
+        cave.amoeba_grows_before_spawn = bdcff.amoeba_grows_before_spawn
+        cave.rockford_birth_time = bdcff.rockford_birth_time
+        cave.no_time_limit = bdcff.no_time_limit
+        cave.reverse_time = bdcff.reverse_time
+        cave.open_horizontal_borders = bdcff.open_horizontal_borders
+        cave.open_vertical_borders = bdcff.open_vertical_borders
+        cave.value_of_a_second = bdcff.value_of_a_second
+        cave.single_life = bdcff.single_life
+        cave.krissz_slime_permeability = bdcff.krissz_slime_permeability
         # convert the bdcff map
         cave.map = [BDCFFOBJECTS[x] for line in bdcff.map.maplines for x in line]
         return cave
@@ -606,5 +679,9 @@ BDCFFOBJECTS = {
     'P': (objects.INBOXBLINKING, Direction.NOWHERE),
     'a': (objects.AMOEBA, Direction.NOWHERE),
     'F': (objects.VOODOO, Direction.NOWHERE),
-    's': (objects.SLIME, Direction.NOWHERE)
+    's': (objects.SLIME, Direction.NOWHERE),
+    # custom objects not in the official BDCFF spec
+    '%': (objects.MEGABOULDER, Direction.NOWHERE),
+    '*': (objects.LIGHTBOULDER, Direction.NOWHERE),
+    'e': (objects.EXPANDINGWALL, Direction.NOWHERE),
 }

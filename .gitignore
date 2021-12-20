@@ -11,3 +11,4 @@
 /.eggs/
 /.mypy_cache/
 /_gdash/
+launcher.ini

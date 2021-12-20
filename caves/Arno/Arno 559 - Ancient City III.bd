@@ -1,0 +1,87 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #f7ebb9 #299969 #085675
+
+[BDCFF]
+[game]
+Name=Arno 559 - Ancient City III
+Description=A converted Krissz Engine cave
+Author=Arno
+WWW=
+Date=2017-07-27
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=Ancient City III
+Intermission=false
+CaveTime=300
+DiamondsRequired=150
+DiamondValue=100 100
+AmoebaTime=60
+AmoebaThreshold=0.227300
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=22 40
+TargetFps=7.0
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=6
+Colors=#000000 #000000 #085675 #299969 #f7ebb9 #f7ebb9 #f7ebb9
+
+[map]
+   .. . w . w w w w   
+   wX.w.w.w.ww.www.   
+   .wdrrdwdwd.d.dww   
+   .dd.ddd.drrddrdw   
+   w.rdrrdwdr.drddw   
+   .dddrrdwdddrrdrw   
+   w.w.wd.ww.www.ww   
+   .wddwww.rw.w.dww   
+   wd.rd.dr.dwddr.w   
+   wdrrdw.drdwd.ddw   
+   wddrdwdrdrwrdrdw   
+  .wwww.www..ww.wwww  
+  w.wd.dw.ww.drddwww  
+  .w...rdw.wdr.r.dww  
+  ww.drdrwww.rrdrdww  
+  wddr.drdwddd.ddddw  
+  wd.ddrdd.d.dddrrdw  
+  wrddrrddwdrdrddrdw  
+ w.w.wwwwww.ww.wwwwww 
+ wwwdrd.dw.wwwdrd.www 
+ .wrd.r.ddwwwdr.dddww 
+ wd.rdrdrddwd.ddrrdrw 
+ wdrdrdrdrrwdrrddrddw 
+ .www.www.wwww.www.ww 
+ wwd.dwwwd.dwww..ddww 
+ w.drrdw.drrdwddd.rdw 
+ w.d.rdw.r.ddwd.drdrw 
+ wdrddrwddrrd.ddrrrdw 
+.www.wwww.wwwwwww.wwww
+w.wwd.dw.w.www.dddww.w
+wwdrd.drdwww.drr.rddww
+wdd.rrdrddwrdd.ddr.rdw
+w.drdrrddr.d.rrdrdddrw
+.ww.www.w.wwwwwwwww.ww
+wwdd.dwwwrrr.www.d.dww
+wd.drd.w.d.drdwd.drrdw
+wdrr.rdw.drd.d.rdd.rdw
+wd.rddd.dd.dddwd.rdddw
+wddrddrw.ddrrdwdddrdPw
+wwwwwwwwwwwwwwwwwwwwww
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]

@@ -1,9 +1,12 @@
 """
-Boulder Caves - a Boulder Dash (tm) clone.
+Boulder Caves+ - a Boulder Dash (tm) clone.
+Krissz Engine-compatible remake based on Boulder Caves 5.7.2.
 
 Sprite loading and Tile sheet logic.
 
-Written by Irmen de Jong (irmen@razorvine.net)
+Original version written by Irmen de Jong (irmen@razorvine.net)
+Extended version by Michael Kamensky
+
 License: GNU GPL 3.0, see LICENSE
 """
 
@@ -118,9 +121,18 @@ def text2tiles(text: str) -> Sequence[int]:
     return [num_sprites + ord(c) for c in text]
 
 
-def load_sprites(c64colorpalette: Palette=None, scale: float=1.0, alt_c64tileset=False) -> Sequence[bytes]:
+# returns yellow-colored digits which are 29 tiles apart from the standard white ones
+def colorize_digits(text: str):
+    colored = ""
+    for c in text:
+        colored += chr(ord(c) - 29)
+    return colored
+    
+
+def load_sprites(c64colorpalette: Palette=None, scale: float=1.0, alt_c64tileset=False, krissz_c64tileset=False) -> Sequence[bytes]:
     if c64colorpalette:
-        tiles_filename = "c64_gfx_alt.png" if alt_c64tileset else "c64_gfx.png"
+        tiles_filename = "c64_gfx_alt.png" if alt_c64tileset else \
+            "c64_gfx_krissz.png" if krissz_c64tileset else "c64_gfx.png"
     else:
         tiles_filename = "boulder_rush.png"
     sprite_src_images = []

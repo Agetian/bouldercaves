@@ -1,0 +1,107 @@
+; converted using KrisszConvert by Michael Kamensky
+; colors used: #000000 #ffffff #c2beb9 #63754e
+
+[BDCFF]
+[game]
+Name=CSO #77 - Survival Trick
+Description=A converted Krissz Engine cave
+Author=Dustin
+WWW=
+Date=2020-09-30
+Charset=Original
+Fontset=Original
+Levels=1
+Caves=1
+
+[cave]
+Name=CSO #77
+Intermission=false
+CaveTime=30
+DiamondsRequired=4
+DiamondValue=10 20
+AmoebaTime=60
+AmoebaThreshold=0.227300
+MagicWallTime=20
+BorderProperties.wraparound=false
+BorderProperties.lineshift=false
+Size=9 60
+TargetFps=7.5
+MagicWallStopsAmoeba=true
+RockfordBirthTime=20
+AmoebaLimit=200
+AmoebaGrowsBeforeSpawn=true
+NoTimeLimit=false
+ReverseTime=false
+OpenHorizontalBorders=false
+OpenVerticalBorders=false
+ValueOfASecond=1
+SingleLife=true
+KrisszSlimePermeability=0
+Colors=#000000 #000000 #63754e #c2beb9 #ffffff #ffffff #ffffff
+
+[map]
+   d d   
+         
+   ddd   
+  d   d  
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+sssssssss
+         
+O        
+         
+         
+         
+         
+         
+         
+    d    
+    P    
+    d    
+    .    
+    d    
+    .    
+    d    
+    .    
+    XF   
+    d    
+[/map]
+[/cave]
+
+[/game]
+[/BDCFF]
