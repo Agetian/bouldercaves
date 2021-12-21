@@ -185,8 +185,9 @@ def load_sprites(c64colorpalette: Palette=None, scale: float=1.0, alt_c64tileset
 def load_font(scale: float=1.0) -> Sequence[bytes]:
     font_src_images = []
     scaling_method = Image.NEAREST
-    if hasattr(Image, "HAMMING"):
-        scaling_method = Image.HAMMING
+    # TODO: figure out how to control the scaling (where exactly the HAMMING attr is set)
+    #if hasattr(Image, "HAMMING"):
+    #    scaling_method = Image.HAMMING
     with Image.open(io.BytesIO(pkgutil.get_data(__name__, "gfx/font.png") or b"")) as image:
         for c in range(0, 128):
             row, col = divmod(c, image.width // 8)       # the font image contains 8x8 pixel tiles
