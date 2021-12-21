@@ -792,7 +792,8 @@ BoulderCaves+ supports all possible Krissz Engine cave sizes between 2*2 and 100
                                                       filetypes=[("Boulder Dash BDCFF File", ".bdcff"),
                                                                  ("Boulder Dash BDCFF File", ".bd"),
                                                                  ("Plain Text", ".txt")],
-                                                      parent=self.buttonsframe)
+                                                      parent=self.buttonsframe,
+                                                      initialdir="caves")
         if len(gamefile) == 0:
             return
         caveset = CaveSet(gamefile, caveclass=Cave)
@@ -902,7 +903,8 @@ BoulderCaves+ supports all possible Krissz Engine cave sizes between 2*2 and 100
                                                                     filetypes=[("Boulder Dash BDCFF File", ".bdcff"),
                                                                                ("Boulder Dash BDCFF File", ".bd"),
                                                                                ("Plain Text", ".txt")],
-                                                                    parent=self.buttonsframe)
+                                                                    parent=self.buttonsframe,
+                                                                    initialdir = "caves")
         if gamefile:
             with open(gamefile, "wt") as out:
                 caveset.write(out)
