@@ -941,6 +941,18 @@ BoulderCaves+ supports all possible Krissz Engine cave sizes between 2*2 and 100
                 parameters = [sys.executable, "-m", game.__name__, "--synth", "--playtest", "--game", gamefile]
                 if self.c64colors_var.get():
                     parameters.append("--c64colors")
+            # determine the open border properties
+            open_border = "0"
+            if os.path.exists("launcher.ini"):
+                with open("launcher.ini", "r") as f:
+                    for line in f.readlines():
+                        if line.find("=") != -1:
+                            prop=line.strip().split("=")
+                            if prop[0] == "ext_border":
+                                open_border = prop[1]
+            if open_border != "0":
+                parameters.extend(["-m"])
+                parameters.extend([open_border])
             print("PLAYTESTING: launching game in playtest mode...\n")
             subprocess.Popen(parameters, env=env)
 
