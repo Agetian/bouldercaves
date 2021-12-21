@@ -522,18 +522,18 @@ class BoulderWindow(tkinter.Tk):
         viewy = self.view_y // 16
         curx, cury = viewx + self.visible_columns, viewy + self.visible_rows
         topx, topy = viewx - self.visible_columns / 2, viewy - self.visible_rows / 2
+        can_reveal_tiles = hasattr(self, "tiles_revealed")
         for mirror in self.gamestate.mirror_border_tiles():
                 if mirror.y <= cury and mirror.x <= curx and mirror.y > topy and mirror.x > topx:
                     mirror_target_x = mirror.x
                     mirror_target_y = mirror.y
                     mirror_idx = mirror.y * self.gamestate.width + mirror.x
-                    try:
-                        if self.tiles_revealed[mirror_idx] == 0 and self.gamestate.game_status in (GameStatus.REVEALING_DEMO, GameStatus.REVEALING_PLAY):
-                            continue
-                        elif self.tiles_revealed[mirror_idx] == 0:
-                            self.tiles_revealed[mirror_idx] = 1
-                    except:
-                        pass
+                    if can_reveal_tiles:
+                        if self.tiles_revealed[mirror_idx] == 0:
+                            if self.gamestate.game_status in (GameStatus.REVEALING_DEMO, GameStatus.REVEALING_PLAY):
+                                continue
+                            else:
+                                self.tiles_revealed[mirror_idx] = 1
                     if mirror.x < self.gamestate.cave_delta_x:
                         mirror_target_x += cave_width
                     elif mirror.x >= cave_width + self.gamestate.cave_delta_x:
