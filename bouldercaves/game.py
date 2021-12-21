@@ -26,7 +26,7 @@ from .caves import colorpalette, Palette
 from .helpers import TextHelper, KeyHelper
 from . import audio, synthsamples, tiles, objects, bdcff
 
-__version__ = "1.0.2"
+__version__ = "1.1.0"
 
 
 class BoulderWindow(tkinter.Tk):
