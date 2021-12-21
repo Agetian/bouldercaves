@@ -1301,12 +1301,12 @@ WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
             # magic wall is disabled, stuff falling on it just disappears (a sound is already played)
             self.clear_cell(cell)
         # play the diamond sound regardless of what happens (per Krissz Engine, GDash, BDCFF specs)
-        if self.game.krissz_engine_compat:
-            if not self.diamond_sound_played:
+        if not self.diamond_sound_played:
+            if self.game.krissz_engine_compat:
                 audio.play_krissz_diamond_sample()
-                self.diamond_sound_played = True
-        else:
-            audio.play_sample("diamond" + str(random.randint(1, 6)))
+            else:
+                audio.play_sample("diamond" + str(random.randint(1, 6)))
+            self.diamond_sound_played = True
 
     def update_scorebar(self) -> None:
         # draw the score bar.
@@ -1401,19 +1401,19 @@ WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
             if pushing:
                 audio.play_sample("box_push")
             else:
-                if self.game.krissz_engine_compat:
-                    if not self.boulder_sound_played:
+                if not self.boulder_sound_played:
+                    if self.game.krissz_engine_compat:
                         audio.play_krissz_boulder_sample()
-                        self.boulder_sound_played = True
-                else:
-                    audio.play_sample("boulder")
+                    else:
+                        audio.play_sample("boulder")
+                    self.boulder_sound_played = True
         elif cell.isdiamond():
-            if self.game.krissz_engine_compat:
-                if not self.diamond_sound_played:
+            if not self.diamond_sound_played:
+                if self.game.krissz_engine_compat:
                     audio.play_krissz_diamond_sample()
-                    self.diamond_sound_played = True
-            else:
-                audio.play_sample("diamond" + str(random.randint(1, 6)))
+                else:
+                    audio.play_sample("diamond" + str(random.randint(1, 6)))
+                self.diamond_sound_played = True
 
     def collect_diamond(self) -> None:
         audio.silence_audio("collect_diamond")
