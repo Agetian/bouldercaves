@@ -145,8 +145,16 @@ def start_game(folder_cbbox, cave_listbox, game_mode, target_60fps, synth_sounds
     env["PYTHONPATH"] = sys.path[0]
     subprocess.Popen(exec_params, env=env)
 
-def start_editor(krissz_mode, chosen_folder, chosen_cave, game_mode, target_60fps, synth_sounds, game_scale, full_screen, optimize_level, ext_border):
+def start_editor(krissz_mode, folder_cbbox, cave_listbox, game_mode, target_60fps, synth_sounds, game_scale, full_screen, optimize_level, ext_border):
     import bouldercaves.editor
+    if not cave_listbox.curselection():
+        cave_listbox.selection_set(0)
+        cave_listbox.activate(0)
+        cave_listbox.see(0)
+    chosen_folder = folder_cbbox.get()
+    if chosen_folder == DEFAULT_FOLDER:
+        chosen_folder = ""
+    chosen_cave = cave_listbox.get(cave_listbox.curselection())
     save_settings(chosen_folder, chosen_cave, game_mode, target_60fps, synth_sounds, game_scale, full_screen, optimize_level, ext_border)
     params = "-k" if krissz_mode else ""
     env = os.environ.copy()
