@@ -145,8 +145,9 @@ def start_game(folder_cbbox, cave_listbox, game_mode, target_60fps, synth_sounds
     env["PYTHONPATH"] = sys.path[0]
     subprocess.Popen(exec_params, env=env)
 
-def start_editor(krissz_mode):
+def start_editor(krissz_mode, chosen_folder, chosen_cave, game_mode, target_60fps, synth_sounds, game_scale, full_screen, optimize_level, ext_border):
     import bouldercaves.editor
+    save_settings(chosen_folder, chosen_cave, game_mode, target_60fps, synth_sounds, game_scale, full_screen, optimize_level, ext_border)
     params = "-k" if krissz_mode else ""
     env = os.environ.copy()
     env["PYTHONPATH"] = sys.path[0]
@@ -429,7 +430,7 @@ def run():
 
     frame_buttons = tk.Frame(master=window)
     tk.Button(master=frame_buttons, text="Start", command=lambda: start_game(folders_cbbox, cave_listbox, game_mode.get(), target_60fps.get(), synth_sounds.get(), game_scale.get(), game_scale.get() == "F", optimize_perf.get(), ext_border.get())).grid(row=0, column=0)
-    tk.Button(master=frame_buttons, text="Editor", command=lambda: start_editor(game_mode.get() == "1")).grid(row=0, column=1)
+    tk.Button(master=frame_buttons, text="Editor", command=lambda: start_editor(game_mode.get() == "1", folders_cbbox, cave_listbox, game_mode.get(), target_60fps.get(), synth_sounds.get(), game_scale.get(), game_scale.get() == "F", optimize_perf.get(), ext_border.get())).grid(row=0, column=1)
     tk.Button(master=frame_buttons, text="Define Keys", command=lambda: define_keys()).grid(row=0, column=2)
     tk.Button(master=frame_buttons, text="Quit", command=lambda: quit_launcher(folders_cbbox, cave_listbox, game_mode.get(), target_60fps.get(), synth_sounds.get(), game_scale.get(), game_scale.get() == "F", optimize_perf.get(), ext_border.get())).grid(row=0, column=3)
     separator6 = ttk.Separator(window, orient='horizontal')
