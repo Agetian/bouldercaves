@@ -34,9 +34,9 @@ class BoulderWindow(tkinter.Tk):
     update_timestep = 1 / update_fps
     visible_columns = 40
     visible_rows = 22
-    scalexy = 2.0
+    scalexy = 2
 
-    def __init__(self, title: str, fps: int=30, scale: float=2,
+    def __init__(self, title: str, fps: int=30, scale: int=2,
                  c64colors: bool=False, c64_alternate_tiles: bool=False, smallwindow: bool=False,
                  hidexwalls: bool=False, window30x18: bool=False, animatereveal: bool=False, 
                  krisszcompat: bool=False, krissztileset: bool=False, fullscreen: bool=False,
@@ -46,9 +46,6 @@ class BoulderWindow(tkinter.Tk):
         self.fullscreen = fullscreen
         self.window30x18 = window30x18
         if smallwindow:
-            if int(scale) != scale:
-                print("Warning: Scaling must be integer, not a fraction, when using the small scrolling window, adjusting the scaling value.")
-                scale -= 0.5
             self.visible_columns = 20
             self.visible_rows = 12
         elif window30x18:
@@ -56,8 +53,7 @@ class BoulderWindow(tkinter.Tk):
             self.visible_rows = 18
         super().__init__()
         if self.fullscreen and not size_defined:
-            scale = self.determine_optimal_scale(smallwindow or mirror_size > 0)
-        scale = scale / 2
+            scale = self.determine_optimal_scale()
         self.update_fps = fps
         self.update_timestep = 1 / fps
         self.perf_optimization_level = optimize # 0 = no optimization, 1 = light optimization, 2 = moderate optimization, 3 = heavy optimization
@@ -70,11 +66,6 @@ class BoulderWindow(tkinter.Tk):
         self.krissz_engine_compat = krisszcompat
         if self.visible_columns <= 4 or self.visible_columns > 100 or self.visible_rows <= 4 or self.visible_rows > 100:
             raise ValueError("invalid visible size")
-        if self.scalexy not in (1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10):
-            raise ValueError("invalid scalexy factor", self.scalexy)
-        if mirror_size > 0 and self.scalexy != int(self.scalexy):
-            print("Warning: extended open border mode is buggy in fractional scale size, making the window smaller to use an integer scale value") # TODO: figure out where this is failing for e.g. scalexy == 2.5
-            self.scalexy -= 0.5
         self.geometry("+200+40")
         self.resizable(0, 0)
         self.configure(borderwidth=16, background="black")
@@ -141,18 +132,15 @@ class BoulderWindow(tkinter.Tk):
         self.keymap = KeyHelper.load_key_definitions() # load a custom key map if available
         self.gamestate = GameState(self)
 
-    def determine_optimal_scale(self, integer_only) -> int:
+    def determine_optimal_scale(self) -> int:
         screen_width = tkinter.Tk.winfo_screenwidth(self)
         screen_height = tkinter.Tk.winfo_screenheight(self)
         for size in range(1, 10):
-            scale = (size + 1) / 2
-            if integer_only and scale != int(scale):
-                continue
-            playfield_width = self.visible_columns * 16 * scale
-            playfield_height = (self.visible_rows + 2) * 16 * scale # +2 to account for the score bar
+            playfield_width = self.visible_columns * 16 * size
+            playfield_height = (self.visible_rows + 2) * 16 * size # +2 to account for the score bar
             if playfield_width > screen_width or playfield_height > screen_height:
-                return size if not self.smallwindow else size - 1
-        return 10 if not self.smallwindow else 9
+                return size - 1 
+        return 10
 
     def destroy(self) -> None:
         audio.shutdown_audio()
@@ -849,7 +837,7 @@ def start(sargs: Sequence[str]=None) -> None:
         .format(version=__version__,
                 sound="[synth]" if args.synth else "",
                 playtest="[playtesting]" if args.playtest else "")
-    window = BoulderWindow(title, args.fps, args.size + 1,
+    window = BoulderWindow(title, args.fps, args.size,
                            c64colors=args.c64colors | args.authentic | args.krissz,
                            c64_alternate_tiles=args.othertiles,
                            smallwindow=args.authentic,

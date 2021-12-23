@@ -116,7 +116,7 @@ def start_game(folder_cbbox, cave_listbox, game_mode, target_60fps, synth_sounds
     if target_60fps:
         exec_params.append("-f")
         exec_params.append("60")
-    if game_scale != "2" and not full_screen:
+    if not full_screen:
         exec_params.append("-s")
         exec_params.append(game_scale)
     if optimize_level != "0":
