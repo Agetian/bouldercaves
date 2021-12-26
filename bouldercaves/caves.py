@@ -446,7 +446,7 @@ class C64Cave(Cave):
         cave.amoebafactor = 0.2273
         cave.build_map(data[0x20:])
         # if map contains amoeba, the fg3 color is not white but instead the amoeba color.
-        if any(m[0] == objects.AMOEBA for m in cave.map):
+        if any(m[0].id == objects.AMOEBA.id for m in cave.map):
             cave.colors.fg3 = cave.colors.amoeba
         return cave
 
