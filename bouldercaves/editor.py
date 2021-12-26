@@ -101,10 +101,10 @@ class ScrollableImageSelector(tkinter.Frame):
                 self.selected_object = obj
                 self.draw_label.configure(image=self.listener.tile_images[EDITOR_OBJECTS[obj]])
                 self.listener.tile_selection_changed(obj, displaytile)
-                if obj == objects.FIREFLY or obj == objects.ALTFIREFLY:
+                if obj.id == objects.FIREFLY.id or obj == objects.ALTFIREFLY.id:
                     self.direction_var.set("L")
                     self.set_direction_button_state(True)
-                elif obj == objects.BUTTERFLY or obj == objects.ALTBUTTERFLY:
+                elif obj.id == objects.BUTTERFLY.id or obj == objects.ALTBUTTERFLY.id:
                     self.direction_var.set("D")
                     self.set_direction_button_state(True)
                 else:
@@ -496,8 +496,8 @@ BoulderCaves+ supports all possible Krissz Engine cave sizes between 2*2 and 100
         self.cave.vert_line(self.playfield_columns - 1, 1, self.playfield_rows - 2, steel)
 
     def get_active_direction(self, object) -> Direction:
-        if object == objects.BUTTERFLY or object == objects.FIREFLY \
-            or object == objects.ALTBUTTERFLY or object == objects.ALTFIREFLY:
+        if object.id == objects.BUTTERFLY.id or object.id == objects.FIREFLY.id \
+            or object.id == objects.ALTBUTTERFLY.id or object.id == objects.ALTFIREFLY.id:
                 dirn = self.imageselector.direction_var.get()
                 if dirn == "U":
                     return Direction.UP
@@ -916,8 +916,8 @@ BoulderCaves+ supports all possible Krissz Engine cave sizes between 2*2 and 100
         # check that the level is sane:
         # we should have at least 1 inbox and at least 1 outbox.
         # (edge is no longer checked, you should take care of a closed cave yourself!)
-        inbox_count = len([x for x, _ in self.cave.map if x == objects.INBOXBLINKING])
-        outbox_count = len([x for x, _ in self.cave.map if x in (objects.OUTBOXCLOSED, objects.OUTBOXBLINKING, objects.OUTBOXHIDDEN)])
+        inbox_count = len([x for x, _ in self.cave.map if x.id == objects.INBOXBLINKING.id])
+        outbox_count = len([x for x, _ in self.cave.map if x.id in (objects.OUTBOXCLOSED.id, objects.OUTBOXBLINKING.id, objects.OUTBOXHIDDEN.id)])
         messages = []
         if inbox_count <= 0:
             messages.append("There should be at least one INBOX.")
@@ -1006,7 +1006,7 @@ BoulderCaves+ supports all possible Krissz Engine cave sizes between 2*2 and 100
             permeability = CaveStatsHelper.get_c64_permeability(-1, -1, self.cave, self.krissz_slime_permeability_var.get(), True)
             for y in range(0, self.cave.height):
                 for x in range(0, self.cave.width):
-                    if (self.cave.map[x + self.cave.width * y][0] == objects.SLIME):
+                    if (self.cave.map[x + self.cave.width * y][0].id == objects.SLIME.id):
                         if 0 <= self.krissz_slime_permeability_var.get() <= 8:
                             permeable = permeability[(x, y)]
                         else:
@@ -1023,7 +1023,7 @@ BoulderCaves+ supports all possible Krissz Engine cave sizes between 2*2 and 100
         if self.showing_impermeable_slime or force:
             for y in range(0, self.cave.height):
                 for x in range(0, self.cave.width):
-                    if (self.cave.map[x + self.cave.width * y][0] == objects.SLIME):
+                    if (self.cave.map[x + self.cave.width * y][0].id == objects.SLIME.id):
                         self.set_canvas_tile(x, y, EDITOR_OBJECTS[objects.SLIME])
         self.showing_impermeable_slime = False
         self.btn_show_imperm_text.set("Show Imprm")

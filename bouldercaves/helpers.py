@@ -84,7 +84,7 @@ class CaveStatsHelper():
         detected_slimes = []
         for scan_y in range(cave.height):
             for scan_x in range(cave.width):
-                if cave.map[scan_y * cave.width + scan_x][0] == objects.SLIME:
+                if cave.map[scan_y * cave.width + scan_x][0].id == objects.SLIME.id:
                     detected_slimes.append( (scan_x, scan_y) )
         
         detected_permeability = {}
@@ -120,7 +120,7 @@ class CaveStatsHelper():
         for scan_y in range(cave.height):
             for scan_x in range(cave.width):
                 object = cave.map[scan_y * cave.width + scan_x][0]
-                if object == objects.SLIME:
+                if object.id == objects.SLIME.id:
                     detected_slimes += 1
                     if 0 <= c64_permeability <= 8:
                         permeability_check = permeability_data[(scan_x, scan_y)]
@@ -128,19 +128,19 @@ class CaveStatsHelper():
                         permeability_check = float_permeability > 0
                     if not permeability_check:
                         impermeable_slimes += 1
-                elif object == objects.DIAMOND:
+                elif object.id == objects.DIAMOND.id:
                     detected_diamonds += 1
-                elif object == objects.AMOEBA:
+                elif object.id == objects.AMOEBA.id:
                     detected_amoeba += 1
-                elif object == objects.FIREFLY or object == objects.ALTFIREFLY:
+                elif object.id == objects.FIREFLY.id or object.id == objects.ALTFIREFLY.id:
                     detected_fireflies += 1
-                elif object == objects.BUTTERFLY or object == objects.ALTBUTTERFLY:
+                elif object.id == objects.BUTTERFLY.id or object.id == objects.ALTBUTTERFLY.id:
                     detected_butterflies += 1
-                elif object == objects.BOULDER:
+                elif object.id == objects.BOULDER.id:
                     detected_boulders += 1
-                elif object == objects.MEGABOULDER:
+                elif object.id == objects.MEGABOULDER.id:
                     detected_heavyboulders += 1
-                elif object == objects.LIGHTBOULDER:
+                elif object.id == objects.LIGHTBOULDER.id:
                     detected_lightboulders += 1
 
         cave_stats = f"Diamonds: {detected_diamonds}\n"
