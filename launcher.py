@@ -20,7 +20,7 @@ import tkinter.messagebox
 from tkinter import ttk
 from bouldercaves.helpers import KeyHelper
 
-VERSION = "1.1.0"
+VERSION = "1.1.2"
 
 DEFAULT_CAVE = "Boulder Dash I (by Peter Liepa)"
 DEFAULT_FOLDER = "-- no folder --"

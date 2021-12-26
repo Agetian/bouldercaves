@@ -585,7 +585,7 @@ BoulderCaves+ supports all possible Krissz Engine cave sizes between 2*2 and 100
             x, y = self.canvas_tag_to_tilexy[current[0]]
             if self.selected_tile_allowed(x, y):
                 self.cave[x, y] = (self.imageselector.selected_erase_object, \
-                    self.get_active_direction(self.imageselector.selected_object))
+                    self.get_active_direction(self.imageselector.selected_erase_object))
 
     def set_editor_title(self, x, y) -> None:
         obj = self.cave[x, y][0]
@@ -610,7 +610,8 @@ BoulderCaves+ supports all possible Krissz Engine cave sizes between 2*2 and 100
                         self.get_active_direction(self.imageselector.selected_object))
                 elif event.state & 0x600:
                     # right / middle mouse button drag
-                    self.cave[x, y] = (self.imageselector.selected_erase_object, Direction.NOWHERE)
+                    self.cave[x, y] = (self.imageselector.selected_erase_object, \
+                        self.get_active_direction(self.imageselector.selected_erase_object))
                 else:
                     if not self._use_active_image() and self.show_active_element:
                         orig_tile = EDITOR_OBJECTS[self.cave[x, y][0]]
