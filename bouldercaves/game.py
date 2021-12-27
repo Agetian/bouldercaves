@@ -26,7 +26,7 @@ from .caves import colorpalette, Palette
 from .helpers import TextHelper, KeyHelper
 from . import audio, synthsamples, tiles, objects, bdcff
 
-__version__ = "1.1.2"
+__version__ = "1.1.3"
 
 
 class BoulderWindow(tkinter.Tk):
@@ -421,7 +421,7 @@ class BoulderWindow(tkinter.Tk):
         # create the images on the canvas for all tiles (fixed position):
         if width == self.playfield_columns and height == self.playfield_rows:
             return
-        if width < 2 or width > 100 + self.mirrored_border_size or height < 2 or height > 100 + self.mirrored_border_size:
+        if width < 2 or width > 100 + 2 * self.mirrored_border_size or height < 2 or height > 100 + 2 * self.mirrored_border_size:
             raise ValueError("invalid playfield/cave width or height (2-100)")
         self.playfield_columns = width
         self.playfield_rows = height
