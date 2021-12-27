@@ -172,7 +172,8 @@ class BoulderWindow(tkinter.Tk):
         self.tick_loop()
     
     def tick_loop(self) -> None:
-        dt = time.perf_counter() - self.gfxupdate_starttime
+        now = time.perf_counter()
+        dt = now - self.gfxupdate_starttime
         self.game_update_dt += dt
         while self.game_update_dt > self.gamestate.update_timestep:
             self.game_update_dt -= self.gamestate.update_timestep
@@ -185,7 +186,7 @@ class BoulderWindow(tkinter.Tk):
             #if self.graphics_update_dt >= self.update_timestep:
                 #print("Gfx update too slow to reach {:d} fps!".format(self.update_fps))
             self.repaint()
-        self.gfxupdate_starttime = time.perf_counter()
+        self.gfxupdate_starttime = now
         self.after(1000 // 60, self.tick_loop)
 
     def restart(self):
