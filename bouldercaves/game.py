@@ -287,7 +287,8 @@ class BoulderWindow(tkinter.Tk):
 
     def repaint(self) -> None:
         self.graphics_frame += 1
-        self.scroll_focuscell_into_view()
+        if not self.gamestate.intermission:
+            self.scroll_focuscell_into_view()
         if self.smallwindow and self.gamestate.game_status == GameStatus.WAITING and self.popup_frame < self.graphics_frame:
             # move the waiting screen (title screen) around so you can see it all :)
             wavew, waveh = tiles.tile2pixels(self.playfield_columns - self.visible_columns, self.playfield_rows - self.visible_rows)
