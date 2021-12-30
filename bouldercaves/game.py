@@ -86,10 +86,9 @@ class BoulderWindow(tkinter.Tk):
                 pass    # that function is not available on windows versions older than win7
         if smallwindow:
             self.tilesheet_score = tiles.Tilesheet(self.visible_columns * 2, 2, self.visible_columns * 2, 2)
-            score_canvas_height = 16 * self.scalexy
         else:
             self.tilesheet_score = tiles.Tilesheet(self.visible_columns, 2, self.visible_columns, 2)
-            score_canvas_height = 32 * self.scalexy
+        score_canvas_height = 32 * self.scalexy
         self.popup_tiles_save = None   # type: Optional[Tuple[int, int, int, int, Sequence[Iterable[int]]]]
         self.on_popup_closed = None   # type: Optional[Callable]
         self.scrolling_into_view = False
@@ -415,7 +414,7 @@ class BoulderWindow(tkinter.Tk):
         source_images = tiles.load_sprites(initial_palette if self.c64colors else None, scale=self.scalexy,
                                            alt_c64tileset=self.c64_alternate_tiles, krissz_c64tileset=self.krissz_tileset)
         self.tile_images = [tkinter.PhotoImage(data=image) for image in source_images]
-        source_images = tiles.load_font(self.scalexy if self.smallwindow else 2 * self.scalexy)
+        source_images = tiles.load_font(2 * self.scalexy)
         self.tile_images.extend([tkinter.PhotoImage(data=image) for image in source_images])
 
     def create_canvas_playfield_and_tilesheet(self, width: int, height: int) -> None:
@@ -440,9 +439,6 @@ class BoulderWindow(tkinter.Tk):
         for y in range(2):
             for x in range(vcols):
                 sx, sy = self.physcoor(*tiles.tile2pixels(x, y))
-                if self.smallwindow:
-                    sx //= 2
-                    sy //= 2
                 self.tilesheet_score[x, y] = 0
                 tile = self.scorecanvas.create_image(sx, sy, image=None, anchor=tkinter.NW, tags="tile")
                 self.cscore_tiles.append(tile)

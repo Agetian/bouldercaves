@@ -1325,14 +1325,15 @@ WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
         #     self.game.tilesheet_score[10, 0] = objects.KEY2.spritex + objects.KEY2.spritey * self.game.tile_image_numcolumns
         # if self.keys["three"]:
         #     self.game.tilesheet_score[11, 0] = objects.KEY3.spritex + objects.KEY3.spritey * self.game.tile_image_numcolumns
-        width = self.game.tilesheet_score.width
+        width = self.game.tilesheet_score.width if not self.game.smallwindow else 20
         if self.level < 1:
             # level has not been loaded yet (we're still at the title screen)
             if self.game.smallwindow and self.game.c64colors:
-                self.game.set_scorebar_tiles(0, 0, tiles.text2tiles("Welcome to Boulder Caves+ 'authentic'".center(width)))
+                self.game.set_scorebar_tiles(0, 0, tiles.text2tiles("Boulder Caves+".center(width)))
+                self.game.set_scorebar_tiles(0, 1, tiles.text2tiles("F1\x04New game F10\x04Quit"))
             else:
                 self.game.set_scorebar_tiles(0, 0, tiles.text2tiles("Welcome to Boulder Caves+".center(width)))
-            self.game.set_scorebar_tiles(0, 1, tiles.text2tiles("F1\x04New game F4\x04Scores F10\x04Quit".center(width)))
+                self.game.set_scorebar_tiles(0, 1, tiles.text2tiles("F1\x04New game F4\x04Scores F10\x04Quit".center(width)))
             if not self.game.smallwindow and not self.game.window30x18:
                 left = [objects.MEGABOULDER.tile(), objects.FLYINGDIAMOND.tile(), objects.DIAMOND.tile(), objects.ROCKFORD.pushleft.tile()]
                 right = [objects.ROCKFORD.pushright.tile(), objects.DIAMOND.tile(), objects.FLYINGDIAMOND.tile(), objects.MEGABOULDER.tile()]
@@ -1360,6 +1361,17 @@ WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
                 diamondline = diamonds_line,
                 diamonds=tiles.colorize_digits("{:03d}".format(self.diamonds)),
             )).ljust(width)
+        elif self.game.smallwindow:
+            if self.diamonds < self.diamonds_needed:
+                diamonds_line = f"{tiles.colorize_digits(str(self.diamonds_needed))}\x0e{self.diamondvalue_initial}"
+            else:
+                diamonds_line = f"\x0e\x0e\x0e{self.diamondvalue_extra}"
+            text = ("{lifeindicator}{diamondline:>7s}  {diamonds:<3s}  {time:>3s}".format(
+                lifeindicator="\x08{lives:2d}".format(lives=self.lives) if not self.single_life else "",
+                time=self.fmt_time,
+                diamondline = diamonds_line,
+                diamonds=tiles.colorize_digits("{:03d}".format(self.diamonds)),
+            )).ljust(width)
         else:
             if self.diamonds < self.diamonds_needed:
                 diamonds_line = f"{tiles.colorize_digits(str(self.diamonds_needed))}\x0e{self.diamondvalue_initial}"
@@ -1376,24 +1388,38 @@ WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
         if self.game_status == GameStatus.WON:
             if self.game.window30x18:
                 line_tiles = tiles.text2tiles("C O N G R A T U L A T I O N S".center(width))
+            elif self.game.smallwindow:
+                line_tiles = tiles.text2tiles("\x0e CONGRATULATIONS \x0e".center(width))
             else:
                 line_tiles = tiles.text2tiles("\x0e  C O N G R A T U L A T I O N S  \x0e".center(width))
         elif self.game_status == GameStatus.LOST:
-            line_tiles = tiles.text2tiles("\x0b  G A M E   O V E R  \x0b".center(width))
-        elif self.game_status == GameStatus.PAUSED:
-            line_tiles = tiles.text2tiles("\x08  P A U S E D  \x08".center(width))
-        elif self.game_status == GameStatus.OUT_OF_TIME:
-            line_tiles = tiles.text2tiles("\x0b  O U T   O F   T I M E  \x0b".center(width))
-        else:
-            if self.level_name.lower().startswith(("cave ", "intermission ")):
-                fmt = "{:s}"
+            if self.game.smallwindow:
+                line_tiles = tiles.text2tiles("\x0b  GAME OVER  \x0b".center(width))
             else:
-                fmt = "Bonus: {:s}" if self.intermission else "Cave: {:s}"
-            if self.game_status == GameStatus.DEMO:
-                fmt += " [Demo]"
-            if self.playtesting:
-                fmt += " [Testing]"
-            line_tiles = tiles.text2tiles(fmt.format(self.level_name).center(width))
+                line_tiles = tiles.text2tiles("\x0b  G A M E   O V E R  \x0b".center(width))
+        elif self.game_status == GameStatus.PAUSED:
+            if self.game.smallwindow:
+                line_tiles = tiles.text2tiles("\x08  PAUSED  \x08".center(width))
+            else:
+                line_tiles = tiles.text2tiles("\x08  P A U S E D  \x08".center(width))
+        elif self.game_status == GameStatus.OUT_OF_TIME:
+            if self.game.smallwindow:
+                line_tiles = tiles.text2tiles("\x0b  OUT OF TIME  \x0b".center(width))
+            else:
+                line_tiles = tiles.text2tiles("\x0b  O U T   O F   T I M E  \x0b".center(width))
+        else:
+            if self.game.smallwindow:
+                line_tiles = tiles.text2tiles("{score:06d}".format(score=self.score).center(width))
+            else:
+                if self.level_name.lower().startswith(("cave ", "intermission ")):
+                    fmt = "{:s}"
+                else:
+                    fmt = "Bonus: {:s}" if self.intermission else "Cave: {:s}"
+                if self.game_status == GameStatus.DEMO:
+                    fmt += " [Demo]"
+                if self.playtesting:
+                    fmt += " [Testing]"
+                line_tiles = tiles.text2tiles(fmt.format(self.level_name).center(width))
         self.game.set_scorebar_tiles(0, 1, line_tiles[:40] if not self.game.window30x18 else line_tiles[:30]) # line 2
 
     def fall_sound(self, cell: Cell, pushing: bool=False) -> None:

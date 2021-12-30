@@ -167,4 +167,7 @@ class TextHelper:
         space_pos = space_pos_L if dist_L < dist_R else space_pos_R
         string_L = string[0:space_pos+1].center(width)
         string_R = string[space_pos+1:].center(width)
+        if len(string_L) > width or len(string_R) > width:
+            string_L = string[0:midpoint]
+            string_R = string[midpoint:]            
         return f"{string_L}\n{string_R}"
