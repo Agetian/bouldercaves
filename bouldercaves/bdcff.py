@@ -276,7 +276,7 @@ class BdcffParser:
         self.name = "Unnamed"
         self.description = ""
         if filename:
-            with open(filename, "rU") as f:
+            with open(filename, "r") as f:
                 for line in f:
                     line = line.rstrip('\n')
                     if line and not line.startswith(';'):
